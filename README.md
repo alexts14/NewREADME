@@ -1,5 +1,5 @@
-# Ref genome indexing with the GTF file
-## 24.03.2025
+# 24.03.2025
+## Ref genome indexing with the GTF file
 To do this we have to encrease the swap to around 35-40 GB because the indexing needs that size of RAM and it cannot be completed in any other way in my computer.
 ```
 (NMR-env) alexts14@GabanouMelissa:~/NMR_project$ free -h
