@@ -26,3 +26,27 @@ Mem:           7.8Gi       625Mi       7.2Gi       3.1Mi       237Mi       7.1Gi
 Swap:           35Gi          0B        35Gi
 (NMR-env) alexts14@GabanouMelissa:~/NMR_project$
 ```
+Swap-supercharged 🔋 — STAR will now have \~43–44 GB total memory (RAM + swap), which is more than enough to build the full index with the GTF file included.
+```
+(NMR-env) alexts14@GabanouMelissa:~/NMR_project$ mkdir -p ~/NMR_project/star_index_full
+TAR --runThreadN 4 \
+     --runMode genomeGenerate \
+     --genomeDir ~/NMR_project/star_index_full \
+     --genomeFastaFiles ~/NMR_project/GCA_944319725.1_Naked_mole-rat_paternal_genomic.fna \
+     --sjdbGTFfile ~/NMR_project/Heterocephalus_glaber_male.Naked_mole-rat_paternal.113.gtf \
+     --sjdbOverhang 99
+(NMR-env) alexts14@GabanouMelissa:~/NMR_project$ STAR --runThreadN 4 \
+>      --runMode genomeGenerate \
+>      --genomeDir ~/NMR_project/star_index_full \
+>      --genomeFastaFiles ~/NMR_project/GCA_944319725.1_Naked_mole-rat_paternal_genomic.fna \
+>      --sjdbGTFfile ~/NMR_project/Heterocephalus_glaber_male.Naked_mole-rat_paternal.113.gtf \
+>      --sjdbOverhang 99
+        /home/alexts14/miniconda3/envs/NMR-env/bin/STAR-avx2 --runThreadN 4 --runMode genomeGenerate --genomeDir /home/alexts14/NMR_project/star_index_full --genomeFastaFiles /home/alexts14/NMR_project/GCA_944319725.1_Naked_mole-rat_paternal_genomic.fna --sjdbGTFfile /home/alexts14/NMR_project/Heterocephalus_glaber_male.Naked_mole-rat_paternal.113.gtf --sjdbOverhang 99
+        STAR version: 2.7.11b   compiled: 2024-11-25T09:14:51+0000 :/opt/conda/conda-bld/star_1732525954305/work/source
+Mar 24 14:18:59 ..... started STAR run
+Mar 24 14:18:59 ... starting to generate Genome files
+Mar 24 14:20:23 ..... processing annotations GTF
+Mar 24 14:21:07 ... starting to sort Suffix Array. This may take a long time...
+Mar 24 14:21:29 ... sorting Suffix Array chunks and saving them to disk...
+```
+Started the indexing that will probably take a long time ( time need)
