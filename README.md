@@ -183,7 +183,7 @@ Writing 3860360648 bytes into /home/alexts14/NMR_project/star_index_full//SA_6 ;
 ```
 That means STAR has successfully written 7 of the 11 total Suffix Array chunks. 
 ## Ubuntu crashed again and the index was incomplete. 
-I now re-run it with the option to work also in the backgroud so that even if the window will close it will still work. 
+I now re-run it with the option to work also in the backgroud so that even if the window will close it will still work (nohup). 
 ```
 (NMR-env) alexts14@GabanouMelissa:~/NMR_project$ tail -f ~/NMR_project/star_index_full/Log.out
 Mar 25 12:42:17 ... starting to sort Suffix Array. This may take a long time...
