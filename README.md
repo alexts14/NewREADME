@@ -113,3 +113,72 @@ Mar 25 12:41:27 ..... processing annotations GTF
 Mar 25 12:42:17 ... starting to sort Suffix Array. This may take a long time...
 Mar 25 12:42:40 ... sorting Suffix Array chunks and saving them to disk...
 ```
+# 26.03.2025
+# Indexing correctly running
+```
+ System information as of Wed Mar 26 09:49:11 CET 2025
+
+  System load:  1.4                  Processes:             33
+  Usage of /:   11.4% of 1006.85GB   Users logged in:       1
+  Memory usage: 96%                  IPv4 address for eth0: 172.28.149.249
+  Swap usage:   17%
+
+ * Strictly confined Kubernetes makes edge and IoT secure. Learn how MicroK8s
+   just raised the bar for easy, resilient and secure K8s cluster deployment.
+
+   https://ubuntu.com/engage/secure-kubernetes-at-the-edge
+
+This message is shown once a day. To disable it please create the
+/home/alexts14/.hushlogin file.
+conda activate NMR-env(base) alexts14@GabanouMelissa:~$ conda activate NMR-env
+(NMR-env) alexts14@GabanouMelissa:~$ cd ~/NMR_project
+(NMR-env) alexts14@GabanouMelissa:~/NMR_project$ top
+top - 09:51:51 up 1 day, 23:40,  1 user,  load average: 1.13, 1.15, 1.06
+Tasks:  29 total,   1 running,  28 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.0 us,  0.1 sy,  0.0 ni, 91.6 id,  8.3 wa,  0.0 hi,  0.0 si,  0.0 st
+MiB Mem :   7945.2 total,    230.4 free,   7814.7 used,     57.8 buff/cache
+MiB Swap:  36864.0 total,  30379.7 free,   6484.3 used.    130.5 avail Mem
+
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
+   2953 alexts14  20   0   11.5g   7.1g    164 D   0.6  91.9 156:34.56 STAR-avx2
+      1 root      20   0   21832   1644    180 S   0.0   0.0   0:14.40 systemd
+      2 root      20   0    2776     52     52 S   0.0   0.0   0:00.11 init-systemd(Ub
+      7 root      20   0    2812      4      4 S   0.0   0.0   0:08.14 init
+     91 root      19  -1   66752   3764   3304 S   0.0   0.0   0:28.71 systemd-journal
+    139 root      20   0   24124   2148   1692 S   0.0   0.0   0:01.46 systemd-udevd
+    229 systemd+  20   0   21452    556    412 S   0.0   0.0   0:01.61 systemd-resolve
+    230 systemd+  20   0   91020    236    172 S   0.0   0.0   0:05.21 systemd-timesyn
+    247 root      20   0    4236     92      0 S   0.0   0.0   0:00.62 cron
+    248 message+  20   0    9592    356      0 S   0.0   0.0   0:10.18 dbus-daemon
+    261 root      20   0   17976    176      0 S   0.0   0.0   0:04.02 systemd-logind
+    265 root      20   0 2052432   2840      0 S   0.0   0.0   0:37.92 wsl-pro-service
+    271 root      20   0    3160      0      0 S   0.0   0.0   0:00.01 agetty
+    278 root      20   0    3116      0      0 S   0.0   0.0   0:00.01 agetty
+    281 syslog    20   0  222508    404      0 S   0.0   0.0   0:03.55 rsyslogd
+    290 root      20   0  107012      0      0 S   0.0   0.0   0:00.20 unattended-upgr
+    334 root      20   0    2780      0      0 S   0.0   0.0   0:00.00 SessionLeader
+    335 root      20   0    2780      0      0 S   0.0   0.0   0:00.06 Relay(336)
+    336 alexts14  20   0    6204     24     24 S   0.0   0.0   0:00.19 bash
+    337 root      20   0    6656      0      0 S   0.0   0.0   0:00.02 login
+    489 alexts14  20   0   20264   1020    504 S   0.0   0.0   0:01.08 systemd
+    490 alexts14  20   0   21144      0      0 S   0.0   0.0   0:00.00 (sd-pam)
+    503 alexts14  20   0    6072      4      4 S   0.0   0.0   0:00.05 bash
+    984 polkitd   20   0  308160    176      0 S   0.0   0.0   0:04.47 polkitd
+   2948 alexts14  20   0    4756      0      0 S   0.0   0.0   0:00.00 STAR
+   4186 root      20   0    2780     64      8 S   0.0   0.0   0:00.00 SessionLeader
+   4187 root      20   0    2780     72      8 S   0.0   0.0   0:00.02 Relay(4188)
+   4188 alexts14  20   0    6204   5220   3448 S   0.0   0.1   0:00.11 bash
+   4255 alexts14  20   0    9336   5148   3000 R   0.0   0.1   0:00.07 top
+(NMR-env) alexts14@GabanouMelissa:~/NMR_project$ tail -f ~/NMR_project/star_index_full/Log.out
+Mar 25 12:42:17 ... starting to sort Suffix Array. This may take a long time...
+Number of chunks: 11;   chunks size limit: 3898642832 bytes
+Mar 25 12:42:40 ... sorting Suffix Array chunks and saving them to disk...
+Writing 3730453064 bytes into /home/alexts14/NMR_project/star_index_full//SA_0 ; empty space on disk = 910014525440 bytes ... done
+Writing 3759292744 bytes into /home/alexts14/NMR_project/star_index_full//SA_1 ; empty space on disk = 910043119616 bytes ... done
+Writing 3894598048 bytes into /home/alexts14/NMR_project/star_index_full//SA_2 ; empty space on disk = 910178263040 bytes ... done
+Writing 3809661048 bytes into /home/alexts14/NMR_project/star_index_full//SA_3 ; empty space on disk = 910093176832 bytes ... done
+Writing 3732790344 bytes into /home/alexts14/NMR_project/star_index_full//SA_4 ; empty space on disk = 910015086592 bytes ... done
+Writing 3895950056 bytes into /home/alexts14/NMR_project/star_index_full//SA_5 ; empty space on disk = 910177398784 bytes ... done
+Writing 3860360648 bytes into /home/alexts14/NMR_project/star_index_full//SA_6 ; empty space on disk = 906281103360 bytes ... done
+```
+That means STAR has successfully written 7 of the 11 total Suffix Array chunks. 
