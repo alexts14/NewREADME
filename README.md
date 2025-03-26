@@ -182,3 +182,129 @@ Writing 3895950056 bytes into /home/alexts14/NMR_project/star_index_full//SA_5 ;
 Writing 3860360648 bytes into /home/alexts14/NMR_project/star_index_full//SA_6 ; empty space on disk = 906281103360 bytes ... done
 ```
 That means STAR has successfully written 7 of the 11 total Suffix Array chunks. 
+## Ubuntu crashed again and the index was incomplete. 
+I now re-run it with the option to work also in the backgroud so that even if the window will close it will still work. 
+```
+(NMR-env) alexts14@GabanouMelissa:~/NMR_project$ tail -f ~/NMR_project/star_index_full/Log.out
+Mar 25 12:42:17 ... starting to sort Suffix Array. This may take a long time...
+Number of chunks: 11;   chunks size limit: 3898642832 bytes
+Mar 25 12:42:40 ... sorting Suffix Array chunks and saving them to disk...
+Writing 3730453064 bytes into /home/alexts14/NMR_project/star_index_full//SA_0 ; empty space on disk = 910014525440 bytes ... done
+Writing 3759292744 bytes into /home/alexts14/NMR_project/star_index_full//SA_1 ; empty space on disk = 910043119616 bytes ... done
+Writing 3894598048 bytes into /home/alexts14/NMR_project/star_index_full//SA_2 ; empty space on disk = 910178263040 bytes ... done
+Writing 3809661048 bytes into /home/alexts14/NMR_project/star_index_full//SA_3 ; empty space on disk = 910093176832 bytes ... done
+Writing 3732790344 bytes into /home/alexts14/NMR_project/star_index_full//SA_4 ; empty space on disk = 910015086592 bytes ... done
+Writing 3895950056 bytes into /home/alexts14/NMR_project/star_index_full//SA_5 ; empty space on disk = 910177398784 bytes ... done
+Writing 3860360648 bytes into /home/alexts14/NMR_project/star_index_full//SA_6 ; empty space on disk = 906281103360 bytes ... done
+
+
+^C
+(NMR-env) alexts14@GabanouMelissa:~/NMR_project$ ^C
+(NMR-env) alexts14@GabanouMelissa:~/NMR_project$ ps aux | grep STAR
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+alexts14     527  0.0  0.0   4092  1984 pts/0    S+   10:38   0:00 grep --color=auto STAR
+(NMR-env) alexts14@GabanouMelissa:~/NMR_project$ tail -n 30 ~/NMR_project/star_index_full/Log.out
+WARNING: while processing sjdbGTFfile=/home/alexts14/NMR_project/Heterocephalus_glaber_male.Naked_mole-rat_paternal.113.gtf: chromosome 'MT' not found in Genome fasta files for line:
+MT      RefSeq  exon    13548   14078   .       -       .       gene_id "ENSHGLG00100000033"; gene_version "1"; transcript_id "ENSHGLT00100000033"; transcript_version "1"; exon_number "1"; gene_name "ND6"; gene_source "RefSeq"; gene_biotype "protein_coding"; transcript_name "ND6-201"; transcript_source "RefSeq"; transcript_biotype "protein_coding"; exon_id "ENSHGLE00100000033"; exon_version "1"; tag "Ensembl_canonical";
+WARNING: while processing sjdbGTFfile=/home/alexts14/NMR_project/Heterocephalus_glaber_male.Naked_mole-rat_paternal.113.gtf: chromosome 'MT' not found in Genome fasta files for line:
+MT      RefSeq  exon    14079   14146   .       -       .       gene_id "ENSHGLG00100000034"; gene_version "1"; transcript_id "ENSHGLT00100000034"; transcript_version "1"; exon_number "1"; gene_source "RefSeq"; gene_biotype "Mt_tRNA"; transcript_source "RefSeq"; transcript_biotype "Mt_tRNA"; exon_id "ENSHGLE00100000034"; exon_version "1"; tag "Ensembl_canonical";
+WARNING: while processing sjdbGTFfile=/home/alexts14/NMR_project/Heterocephalus_glaber_male.Naked_mole-rat_paternal.113.gtf: chromosome 'MT' not found in Genome fasta files for line:
+MT      RefSeq  exon    14149   15283   .       +       .       gene_id "ENSHGLG00100000035"; gene_version "1"; transcript_id "ENSHGLT00100000035"; transcript_version "1"; exon_number "1"; gene_name "CYTB"; gene_source "RefSeq"; gene_biotype "protein_coding"; transcript_name "CYTB-201"; transcript_source "RefSeq"; transcript_biotype "protein_coding"; exon_id "ENSHGLE00100000035"; exon_version "1"; tag "Ensembl_canonical";
+WARNING: while processing sjdbGTFfile=/home/alexts14/NMR_project/Heterocephalus_glaber_male.Naked_mole-rat_paternal.113.gtf: chromosome 'MT' not found in Genome fasta files for line:
+MT      RefSeq  exon    15289   15357   .       +       .       gene_id "ENSHGLG00100000036"; gene_version "1"; transcript_id "ENSHGLT00100000036"; transcript_version "1"; exon_number "1"; gene_source "RefSeq"; gene_biotype "Mt_tRNA"; transcript_source "RefSeq"; transcript_biotype "Mt_tRNA"; exon_id "ENSHGLE00100000036"; exon_version "1"; tag "Ensembl_canonical";
+WARNING: while processing sjdbGTFfile=/home/alexts14/NMR_project/Heterocephalus_glaber_male.Naked_mole-rat_paternal.113.gtf: chromosome 'MT' not found in Genome fasta files for line:
+MT      RefSeq  exon    15360   15425   .       -       .       gene_id "ENSHGLG00100000037"; gene_version "1"; transcript_id "ENSHGLT00100000037"; transcript_version "1"; exon_number "1"; gene_source "RefSeq"; gene_biotype "Mt_tRNA"; transcript_source "RefSeq"; transcript_biotype "Mt_tRNA"; exon_id "ENSHGLE00100000037"; exon_version "1"; tag "Ensembl_canonical";
+Processing pGe.sjdbGTFfile=/home/alexts14/NMR_project/Heterocephalus_glaber_male.Naked_mole-rat_paternal.113.gtf, found:
+                2768 transcripts
+                20594 exons (non-collapsed)
+                8928 collapsed junctions
+Total junctions: 8928
+Mar 25 12:41:41 ..... finished GTF processing
+
+Estimated genome size with padding and SJs: total=genome+SJ=2703523776 = 2504523776 + 199000000
+GstrandBit=32
+Number of SA indices: 4996924032
+Mar 25 12:42:17 ... starting to sort Suffix Array. This may take a long time...
+Number of chunks: 11;   chunks size limit: 3898642832 bytes
+Mar 25 12:42:40 ... sorting Suffix Array chunks and saving them to disk...
+Writing 3730453064 bytes into /home/alexts14/NMR_project/star_index_full//SA_0 ; empty space on disk = 910014525440 bytes ... done
+Writing 3759292744 bytes into /home/alexts14/NMR_project/star_index_full//SA_1 ; empty space on disk = 910043119616 bytes ... done
+Writing 3894598048 bytes into /home/alexts14/NMR_project/star_index_full//SA_2 ; empty space on disk = 910178263040 bytes ... done
+Writing 3809661048 bytes into /home/alexts14/NMR_project/star_index_full//SA_3 ; empty space on disk = 910093176832 bytes ... done
+Writing 3732790344 bytes into /home/alexts14/NMR_project/star_index_full//SA_4 ; empty space on disk = 910015086592 bytes ... done
+Writing 3895950056 bytes into /home/alexts14/NMR_project/star_index_full//SA_5 ; empty space on disk = 910177398784 bytes ... done
+Writing 3860360648 bytes into /home/alexts14/NMR_project/star_index_full//SA_6 ; empty space on disk = 906281103360 bytes ... done
+(NMR-env) alexts14@GabanouMelissa:~/NMR_project$ free -h
+               total        used        free      shared  buff/cache   available
+Mem:           7.8Gi       585Mi       6.7Gi       3.1Mi       682Mi       7.2Gi
+Swap:          4.0Gi          0B       4.0Gi
+(NMR-env) alexts14@GabanouMelissa:~/NMR_project$ sudo swapon /swapfile
+[sudo] password for alexts14:
+Sorry, try again.
+[sudo] password for alexts14:
+(NMR-env) alexts14@GabanouMelissa:~/NMR_project$ free -h
+               total        used        free      shared  buff/cache   available
+Mem:           7.8Gi       612Mi       6.7Gi       3.1Mi       683Mi       7.2Gi
+Swap:           39Gi          0B        39Gi
+(NMR-env) alexts14@GabanouMelissa:~/NMR_project$ rm -r ~/NMR_project/star_index_full/*
+(NMR-env) alexts14@GabanouMelissa:~/NMR_project$ nohup STAR --runThreadN 4 \
+>      --runMode genomeGenerate \
+>      --genomeDir ~/NMR_project/star_index_full \
+>      --genomeFastaFiles ~/NMR_project/GCA_944319725.1_Naked_mole-rat_paternal_genomic.fna \
+>      --sjdbGTFfile ~/NMR_project/Heterocephalus_glaber_male.Naked_mole-rat_paternal.113.gtf \
+>      --sjdbOverhang 99 > star_log.txt 2>&1 &
+[1] 537
+(NMR-env) alexts14@GabanouMelissa:~/NMR_project$ tail -f star_log.txt
+nohup: ignoring input
+        /home/alexts14/miniconda3/envs/NMR-env/bin/STAR-avx2 --runThreadN 4 --runMode genomeGenerate --genomeDir /home/alexts14/NMR_project/star_index_full --genomeFastaFiles /home/alexts14/NMR_project/GCA_944319725.1_Naked_mole-rat_paternal_genomic.fna --sjdbGTFfile /home/alexts14/NMR_project/Heterocephalus_glaber_male.Naked_mole-rat_paternal.113.gtf --sjdbOverhang 99
+        STAR version: 2.7.11b   compiled: 2024-11-25T09:14:51+0000 :/opt/conda/conda-bld/star_1732525954305/work/source
+Mar 26 10:43:04 ..... started STAR run
+Mar 26 10:43:04 ... starting to generate Genome files
+^C
+(NMR-env) alexts14@GabanouMelissa:~/NMR_project$ ps aux | grep STAR
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+alexts14     537  0.0  0.0   4756  1884 pts/0    S    10:43   0:00 /bin/bash /home/alexts14/miniconda3/envs/NMR-env/bin/STAR --runThreadN 4 --runMode genomeGenerate --genomeDir /home/alexts14/NMR_project/star_index_full --genomeFastaFiles /home/alexts14/NMR_project/GCA_944319725.1_Naked_mole-rat_paternal_genomic.fna --sjdbGTFfile /home/alexts14/NMR_project/Heterocephalus_glaber_male.Naked_mole-rat_paternal.113.gtf --sjdbOverhang 99
+alexts14     542 77.3 59.8 4901592 4873376 pts/0 R    10:43   0:58 /home/alexts14/miniconda3/envs/NMR-env/bin/STAR-avx2 --runThreadN 4 --runMode genomeGenerate --genomeDir /home/alexts14/NMR_project/star_index_full --genomeFastaFiles /home/alexts14/NMR_project/GCA_944319725.1_Naked_mole-rat_paternal_genomic.fna --sjdbGTFfile /home/alexts14/NMR_project/Heterocephalus_glaber_male.Naked_mole-rat_paternal.113.gtf --sjdbOverhang 99
+alexts14     545  0.0  0.0   4092  1924 pts/0    S+   10:44   0:00 grep --color=auto STAR
+(NMR-env) alexts14@GabanouMelissa:~/NMR_project$ top
+top - 10:44:39 up 10 min,  1 user,  load average: 0.81, 0.37, 0.20
+Tasks:  25 total,   2 running,  23 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  5.6 us,  0.4 sy,  0.0 ni, 91.4 id,  2.6 wa,  0.0 hi,  0.1 si,  0.0 st
+MiB Mem :   7945.2 total,    123.7 free,   5361.8 used,   2695.6 buff/cache
+MiB Swap:  40960.0 total,  40920.4 free,     39.6 used.   2583.4 avail Mem
+
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
+    542 alexts14  20   0 4901592   4.6g   5092 R  67.8  59.8   1:12.70 STAR-avx2
+      1 root      20   0   21676  12304   9412 S   0.0   0.2   0:00.87 systemd
+      2 root      20   0    2776   1836   1796 S   0.0   0.0   0:00.01 init-systemd(Ub
+      7 root      20   0    2776    132    132 S   0.0   0.0   0:00.00 init
+     79 root      19  -1   50436  14576  13400 S   0.0   0.2   0:00.27 systemd-journal
+    126 root      20   0   24124   5032   3712 S   0.0   0.1   0:00.22 systemd-udevd
+    214 systemd+  20   0   21452  11836   9644 S   0.0   0.1   0:00.19 systemd-resolve
+    215 systemd+  20   0   91020   6512   5664 S   0.0   0.1   0:00.12 systemd-timesyn
+    231 root      20   0    4236   2628   2388 S   0.0   0.0   0:00.01 cron
+    232 message+  20   0    9588   4932   4376 S   0.0   0.1   0:00.10 dbus-daemon
+    239 root      20   0   17976   8184   7164 S   0.0   0.1   0:00.12 systemd-logind
+    244 root      20   0 1756096  17588  10960 S   0.0   0.2   0:00.16 wsl-pro-service
+    250 root      20   0    3160   1136   1048 S   0.0   0.0   0:00.01 agetty
+    254 root      20   0    3116   1140   1056 S   0.0   0.0   0:00.01 agetty
+    256 syslog    20   0  222508   9296   4408 S   0.0   0.1   0:00.10 rsyslogd
+    265 root      20   0  107012  19240   9912 S   0.0   0.2   0:00.21 unattended-upgr
+    328 root      20   0    2780    140     80 S   0.0   0.0   0:00.00 SessionLeader
+    329 root      20   0    2780    136     80 S   0.0   0.0   0:00.02 Relay(330)
+    330 alexts14  20   0    6204   3352   2840 S   0.0   0.0   0:00.12 bash
+    331 root      20   0    6660   4016   3764 S   0.0   0.0   0:00.02 login
+    444 alexts14  20   0   20260  11364   9288 S   0.0   0.1   0:00.21 systemd
+    445 alexts14  20   0   21148    508      0 S   0.0   0.0   0:00.00 (sd-pam)
+    458 alexts14  20   0    6072   3744   2148 S   0.0   0.0   0:00.05 bash
+    537 alexts14  20   0    4756   1884   1884 S   0.0   0.0   0:00.00 STAR
+    546 alexts14  20   0    9336   5160   3004 R   0.0   0.1   0:00.01 top
+(NMR-env) alexts14@GabanouMelissa:~/NMR_project$ tail -f star_log.txt
+nohup: ignoring input
+        /home/alexts14/miniconda3/envs/NMR-env/bin/STAR-avx2 --runThreadN 4 --runMode genomeGenerate --genomeDir /home/alexts14/NMR_project/star_index_full --genomeFastaFiles /home/alexts14/NMR_project/GCA_944319725.1_Naked_mole-rat_paternal_genomic.fna --sjdbGTFfile /home/alexts14/NMR_project/Heterocephalus_glaber_male.Naked_mole-rat_paternal.113.gtf --sjdbOverhang 99
+        STAR version: 2.7.11b   compiled: 2024-11-25T09:14:51+0000 :/opt/conda/conda-bld/star_1732525954305/work/source
+Mar 26 10:43:04 ..... started STAR run
+Mar 26 10:43:04 ... starting to generate Genome files
+Mar 26 10:44:52 ..... processing annotations GTF
+Mar 26 10:45:32 ... starting to sort Suffix Array. This may take a long time...
+Mar 26 10:45:55 ... sorting Suffix Array chunks and saving them to disk...
