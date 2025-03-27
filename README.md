@@ -308,3 +308,30 @@ Mar 26 10:43:04 ... starting to generate Genome files
 Mar 26 10:44:52 ..... processing annotations GTF
 Mar 26 10:45:32 ... starting to sort Suffix Array. This may take a long time...
 Mar 26 10:45:55 ... sorting Suffix Array chunks and saving them to disk...
+```
+# 27/03/2025
+# Final steps of indexing
+```
+(NMR-env) alexts14@GabanouMelissa:~/NMR_project$ ls -lh ~/NMR_project/star_index_full
+total 29G
+-rw-r--r-- 1 alexts14 alexts14 284M Mar 27 08:48 Log.out
+-rw-r--r-- 1 alexts14 alexts14 3.5G Mar 26 12:36 SA_0
+-rw-r--r-- 1 alexts14 alexts14 3.6G Mar 26 15:02 SA_1
+-rw-r--r-- 1 alexts14 alexts14 3.7G Mar 26 18:21 SA_2
+-rw-r--r-- 1 alexts14 alexts14 3.6G Mar 26 21:20 SA_3
+-rw-r--r-- 1 alexts14 alexts14 3.5G Mar 27 00:07 SA_4
+-rw-r--r-- 1 alexts14 alexts14 3.7G Mar 27 03:15 SA_5
+-rw-r--r-- 1 alexts14 alexts14 3.6G Mar 27 06:04 SA_6
+-rw-r--r-- 1 alexts14 alexts14 3.5G Mar 27 08:48 SA_7
+-rw-r--r-- 1 alexts14 alexts14  294 Mar 26 10:45 chrLength.txt
+-rw-r--r-- 1 alexts14 alexts14  352 Mar 26 10:45 chrName.txt
+-rw-r--r-- 1 alexts14 alexts14  646 Mar 26 10:45 chrNameLength.txt
+-rw-r--r-- 1 alexts14 alexts14  346 Mar 26 10:45 chrStart.txt
+-rw-r--r-- 1 alexts14 alexts14 657K Mar 26 10:45 exonGeTrInfo.tab
+-rw-r--r-- 1 alexts14 alexts14 298K Mar 26 10:45 exonInfo.tab
+-rw-r--r-- 1 alexts14 alexts14  69K Mar 26 10:45 geneInfo.tab
+-rw-r--r-- 1 alexts14 alexts14 304K Mar 26 10:45 sjdbList.fromGTF.out.tab
+-rw-r--r-- 1 alexts14 alexts14 179K Mar 26 10:45 transcriptInfo.tab
+(NMR-env) alexts14@GabanouMelissa:~/NMR_project$
+```
+The index file is progressing. 
