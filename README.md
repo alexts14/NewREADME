@@ -309,7 +309,7 @@ Mar 26 10:44:52 ..... processing annotations GTF
 Mar 26 10:45:32 ... starting to sort Suffix Array. This may take a long time...
 Mar 26 10:45:55 ... sorting Suffix Array chunks and saving them to disk...
 ```
-# 27/03/2025
+# 27.03.2025
 # Final steps of indexing
 ```
 (NMR-env) alexts14@GabanouMelissa:~/NMR_project$ ls -lh ~/NMR_project/star_index_full
@@ -335,3 +335,82 @@ total 29G
 (NMR-env) alexts14@GabanouMelissa:~/NMR_project$
 ```
 The index file is progressing. 
+# 28.03.2025
+## The daily report
+```
+(NMR-env) alexts14@GabanouMelissa:~/NMR_project$ tail -f star_log.txt
+Mar 26 10:43:04 ..... started STAR run
+Mar 26 10:43:04 ... starting to generate Genome files
+Mar 26 10:44:52 ..... processing annotations GTF
+Mar 26 10:45:32 ... starting to sort Suffix Array. This may take a long time...
+Mar 26 10:45:55 ... sorting Suffix Array chunks and saving them to disk...
+Mar 27 15:46:39 ... loading chunks from disk, packing SA...
+Mar 27 16:01:25 ... finished generating suffix array
+Mar 27 16:01:25 ... generating Suffix Array index
+Mar 27 16:20:13 ... completed Suffix Array index
+Mar 27 16:20:13 ..... inserting junctions into the genome indices
+^C
+(NMR-env) alexts14@GabanouMelissa:~/NMR_project$ ls -lh ~/NMR_project/star_index_full
+total 287M
+-rw-r--r-- 1 alexts14 alexts14 284M Mar 28 05:17 Log.out
+-rw-r--r-- 1 alexts14 alexts14  294 Mar 26 10:45 chrLength.txt
+-rw-r--r-- 1 alexts14 alexts14  352 Mar 26 10:45 chrName.txt
+-rw-r--r-- 1 alexts14 alexts14  646 Mar 26 10:45 chrNameLength.txt
+-rw-r--r-- 1 alexts14 alexts14  346 Mar 26 10:45 chrStart.txt
+-rw-r--r-- 1 alexts14 alexts14 657K Mar 26 10:45 exonGeTrInfo.tab
+-rw-r--r-- 1 alexts14 alexts14 298K Mar 26 10:45 exonInfo.tab
+-rw-r--r-- 1 alexts14 alexts14  69K Mar 26 10:45 geneInfo.tab
+-rw-r--r-- 1 alexts14 alexts14 262K Mar 27 16:20 sjdbInfo.txt
+-rw-r--r-- 1 alexts14 alexts14 304K Mar 26 10:45 sjdbList.fromGTF.out.tab
+-rw-r--r-- 1 alexts14 alexts14 268K Mar 27 16:20 sjdbList.out.tab
+-rw-r--r-- 1 alexts14 alexts14 179K Mar 26 10:45 transcriptInfo.tab
+(NMR-env) alexts14@GabanouMelissa:~/NMR_project$ top
+top - 10:08:31 up 2 days,  1:17,  1 user,  load average: 1.08, 1.12, 1.10
+Tasks:  26 total,   1 running,  25 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.0 us,  0.1 sy,  0.0 ni, 90.1 id,  9.8 wa,  0.0 hi,  0.0 si,  0.0 st
+MiB Mem :   7945.2 total,    128.6 free,   7882.9 used,    124.7 buff/cache
+MiB Swap:  40960.0 total,  21304.8 free,  19655.2 used.     62.2 avail Mem
+
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
+    542 alexts14  20   0   26.9g   6.4g    340 D   1.7  82.2 244:57.65 STAR-avx2
+      1 root      20   0   21676   3804   1800 S   0.0   0.0   0:15.60 systemd
+      2 root      20   0    2776    152    152 S   0.0   0.0   0:00.02 init-systemd(Ub
+      7 root      20   0    2792      4      4 S   0.0   0.0   0:00.13 init
+     79 root      19  -1   66828   3456   2932 S   0.0   0.0   0:28.08 systemd-journal
+    126 root      20   0   24124     72      0 S   0.0   0.0   0:00.81 systemd-udevd
+    214 systemd+  20   0   21452    744    632 S   0.0   0.0   0:01.67 systemd-resolve
+    215 systemd+  20   0   91020    968    892 S   0.0   0.0   0:05.49 systemd-timesyn
+    231 root      20   0    4236    508    400 S   0.0   0.0   0:00.66 cron
+    232 message+  20   0    9588    368      0 S   0.0   0.0   0:10.55 dbus-daemon
+    239 root      20   0   17976    388    216 S   0.0   0.0   0:04.25 systemd-logind
+    244 root      20   0 2274460   2316      0 S   0.0   0.0   0:42.45 wsl-pro-service
+    250 root      20   0    3160      0      0 S   0.0   0.0   0:00.01 agetty
+    254 root      20   0    3116      0      0 S   0.0   0.0   0:00.01 agetty
+    256 syslog    20   0  222508    284      0 S   0.0   0.0   0:03.79 rsyslogd
+    265 root      20   0  107012      0      0 S   0.0   0.0   0:00.21 unattended-upgr
+    328 root      20   0    2780      0      0 S   0.0   0.0   0:00.00 SessionLeader
+    329 root      20   0    2780    160    156 S   0.0   0.0   0:00.12 Relay(330)
+    330 alexts14  20   0    6204   2208   1704 S   0.0   0.0   0:00.36 bash
+    331 root      20   0    6660      0      0 S   0.0   0.0   0:00.02 login
+    444 alexts14  20   0   20260   1780   1176 S   0.0   0.0   0:01.15 systemd
+    445 alexts14  20   0   21148      0      0 S   0.0   0.0   0:00.00 (sd-pam)
+    458 alexts14  20   0    6072      4      4 S   0.0   0.0   0:00.05 bash
+    537 alexts14  20   0    4756      0      0 S   0.0   0.0   0:00.00 STAR
+   1726 polkitd   20   0  308160    248      0 S   0.0   0.0   0:03.19 polkitd
+   3286 alexts14  20   0    9396   5156   3004 R   0.0   0.1   0:00.10 top
+```
+The new update is:
+```
+cannot o(NMR-env) alexts14@GabanouMelissa:~/NMR_project$ tail -f star_log.txt
+Mar 26 10:44:52 ..... processing annotations GTF
+Mar 26 10:45:32 ... starting to sort Suffix Array. This may take a long time...
+Mar 26 10:45:55 ... sorting Suffix Array chunks and saving them to disk...
+Mar 27 15:46:39 ... loading chunks from disk, packing SA...
+Mar 27 16:01:25 ... finished generating suffix array
+Mar 27 16:01:25 ... generating Suffix Array index
+Mar 27 16:20:13 ... completed Suffix Array index
+Mar 27 16:20:13 ..... inserting junctions into the genome indices
+Mar 28 12:13:32 ... writing Genome to disk ...
+Mar 28 12:35:13 ... writing Suffix Array to disk ...
+```
+
