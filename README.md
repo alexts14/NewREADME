@@ -413,4 +413,41 @@ Mar 27 16:20:13 ..... inserting junctions into the genome indices
 Mar 28 12:13:32 ... writing Genome to disk ...
 Mar 28 12:35:13 ... writing Suffix Array to disk ...
 ```
+## Indexing has just finished
+```
+(NMR-env) alexts14@GabanouMelissa:~/NMR_project$ tail -f star_log.txt
+Mar 26 10:44:52 ..... processing annotations GTF
+Mar 26 10:45:32 ... starting to sort Suffix Array. This may take a long time...
+Mar 26 10:45:55 ... sorting Suffix Array chunks and saving them to disk...
+Mar 27 15:46:39 ... loading chunks from disk, packing SA...
+Mar 27 16:01:25 ... finished generating suffix array
+Mar 27 16:01:25 ... generating Suffix Array index
+Mar 27 16:20:13 ... completed Suffix Array index
+Mar 27 16:20:13 ..... inserting junctions into the genome indices
+Mar 28 12:13:32 ... writing Genome to disk ...
+Mar 28 12:35:13 ... writing Suffix Array to disk ...
+Mar 28 14:55:16 ... writing SAindex to disk
+Mar 28 15:00:10 ..... finished successfully
+^C
+[1]+  Done                    nohup STAR --runThreadN 4 --runMode genomeGenerate --genomeDir ~/NMR_project/star_index_full --genomeFastaFiles ~/NMR_project/GCA_944319725.1_Naked_mole-rat_paternal_genomic.fna --sjdbGTFfile ~/NMR_project/Heterocephalus_glaber_male.Naked_mole-rat_paternal.113.gtf --sjdbOverhang 99 > star_log.txt 2>&1
+(NMR-env) alexts14@GabanouMelissa:~/NMR_project$ ls -lh ~/NMR_project/star_index_full
+total 24G
+-rw-r--r-- 1 alexts14 alexts14 2.4G Mar 28 12:33 Genome
+-rw-r--r-- 1 alexts14 alexts14 284M Mar 28 15:00 Log.out
+-rw-r--r-- 1 alexts14 alexts14  20G Mar 28 14:48 SA
+-rw-r--r-- 1 alexts14 alexts14 1.5G Mar 28 14:55 SAindex
+-rw-r--r-- 1 alexts14 alexts14  294 Mar 26 10:45 chrLength.txt
+-rw-r--r-- 1 alexts14 alexts14  352 Mar 26 10:45 chrName.txt
+-rw-r--r-- 1 alexts14 alexts14  646 Mar 26 10:45 chrNameLength.txt
+-rw-r--r-- 1 alexts14 alexts14  346 Mar 26 10:45 chrStart.txt
+-rw-r--r-- 1 alexts14 alexts14 657K Mar 26 10:45 exonGeTrInfo.tab
+-rw-r--r-- 1 alexts14 alexts14 298K Mar 26 10:45 exonInfo.tab
+-rw-r--r-- 1 alexts14 alexts14  69K Mar 26 10:45 geneInfo.tab
+-rw-r--r-- 1 alexts14 alexts14  964 Mar 28 12:13 genomeParameters.txt
+-rw-r--r-- 1 alexts14 alexts14 262K Mar 27 16:20 sjdbInfo.txt
+-rw-r--r-- 1 alexts14 alexts14 304K Mar 26 10:45 sjdbList.fromGTF.out.tab
+-rw-r--r-- 1 alexts14 alexts14 268K Mar 27 16:20 sjdbList.out.tab
+-rw-r--r-- 1 alexts14 alexts14 179K Mar 26 10:45 transcriptInfo.tab
+(NMR-env) alexts14@GabanouMelissa:~/NMR_project$
+```
 
