@@ -450,4 +450,49 @@ total 24G
 -rw-r--r-- 1 alexts14 alexts14 179K Mar 26 10:45 transcriptInfo.tab
 (NMR-env) alexts14@GabanouMelissa:~/NMR_project$
 ```
+# 31.03.2025
+Now that the indexing of the genome is complete we can continue with some alignment tests. 
+```
+(NMR-env) alexts14@GabanouMelissa:~/NMR_project$ STAR --runThreadN 4 \
+ --genom>      --genomeDir ~/NMR_project/star_index_full \
+>      --readFilesIn SRR21882792_1.fastq SRR21882792_2.fastq \
+ --outF>      --outFileNamePrefix SRR21882792_test_ \
+>      --readMapNumber 100000 \
+>      --outSAMtype BAM SortedByCoordinate
+        /home/alexts14/miniconda3/envs/NMR-env/bin/STAR-avx2 --runThreadN 4 --genomeDir /home/alexts14/NMR_project/star_index_full --readFilesIn SRR21882792_1.fastq SRR21882792_2.fastq --outFileNamePrefix SRR21882792_test_ --readMapNumber 100000 --outSAMtype BAM SortedByCoordinate
+        STAR version: 2.7.11b   compiled: 2024-11-25T09:14:51+0000 :/opt/conda/conda-bld/star_1732525954305/work/source
+Mar 31 13:55:20 ..... started STAR run
+Mar 31 13:55:20 ..... loading genome
 
+EXITING: fatal error trying to allocate genome arrays, exception thrown: std::bad_alloc
+Possible cause 1: not enough RAM. Check if you have enough RAM 26699067469 bytes
+Possible cause 2: not enough virtual memory allowed with ulimit. SOLUTION: run ulimit -v 26699067469
+
+Mar 31 13:55:20 ...... FATAL ERROR, exiting
+(NMR-env) alexts14@GabanouMelissa:~/NMR_project$ ulimit -v
+unlimited
+(NMR-env) alexts14@GabanouMelissa:~/NMR_project$ free -h
+               total        used        free      shared  buff/cache   available
+Mem:           7.8Gi       582Mi       7.1Gi       3.1Mi       322Mi       7.2Gi
+Swap:          4.0Gi          0B       4.0Gi
+(NMR-env) alexts14@GabanouMelissa:~/NMR_project$ ls -lh /swapfile
+-rw------- 1 root root 36G Mar 24 14:14 /swapfile
+(NMR-env) alexts14@GabanouMelissa:~/NMR_project$ sudo swapon /swapfile
+[sudo] password for alexts14:
+(NMR-env) alexts14@GabanouMelissa:~/NMR_project$ free -h
+               total        used        free      shared  buff/cache   available
+Mem:           7.8Gi       609Mi       7.1Gi       3.1Mi       323Mi       7.2Gi
+Swap:           39Gi          0B        39Gi
+(NMR-env) alexts14@GabanouMelissa:~/NMR_project$ STAR --runThreadN 4 \
+>      --genomeDir ~/NMR_project/star_index_full \
+>      --readFilesIn SRR21882792_1.fastq SRR21882792_2.fastq \
+>      --outFileNamePrefix SRR21882792_test_ \
+>      --readMapNumber 100000 \
+>      --outSAMtype BAM SortedByCoordinate
+        /home/alexts14/miniconda3/envs/NMR-env/bin/STAR-avx2 --runThreadN 4 --genomeDir /home/alexts14/NMR_project/star_index_full --readFilesIn SRR21882792_1.fastq SRR21882792_2.fastq --outFileNamePrefix SRR21882792_test_ --readMapNumber 100000 --outSAMtype BAM SortedByCoordinate
+        STAR version: 2.7.11b   compiled: 2024-11-25T09:14:51+0000 :/opt/conda/conda-bld/star_1732525954305/work/source
+Mar 31 13:58:15 ..... started STAR run
+Mar 31 13:58:15 ..... loading genome
+Mar 31 14:05:05 ..... started mapping
+```
+Used readMapNumber 100000 to make a small alignment to run a test before going to a full alignment. Also needed to activate the swap file of 36G, as it would not work without it.  
