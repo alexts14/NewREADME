@@ -496,3 +496,34 @@ Mar 31 13:58:15 ..... loading genome
 Mar 31 14:05:05 ..... started mapping
 ```
 Used readMapNumber 100000 to make a small alignment to run a test before going to a full alignment. Also needed to activate the swap file of 36G, as it would not work without it.  
+# 01.04.2025
+## Alignment test finished
+```
+NMR-env) alexts14@GabanouMelissa:~/NMR_project$ ls -lh
+total 11G
+-rw-r--r-- 1 alexts14 alexts14    0 Mar 19 11:42 --genomeDir
+-rw-r--r-- 1 alexts14 alexts14    0 Mar 19 11:42 --genomeFastaFiles
+-rw-r--r-- 1 alexts14 alexts14    0 Mar 19 11:42 --genomeSAsparseD
+-rw-r--r-- 1 alexts14 alexts14    0 Mar 19 11:42 --limitGenomeGenerateRAM
+-rw-r--r-- 1 alexts14 alexts14    0 Mar 19 11:42 --runMode
+-rw-r--r-- 1 alexts14 alexts14 2.4G Mar 18 09:13 GCA_944319725.1_Naked_mole-rat_paternal_genomic.fna
+-rw-r--r-- 1 alexts14 alexts14 439M Mar 21 16:19 Heterocephalus_glaber_male.Naked_mole-rat_paternal.113.gtf
+-rw-r--r-- 1 alexts14 alexts14  253 Mar 21 16:19 Heterocephalus_glaber_male.Naked_mole-rat_paternal.113.gtf.gz:Zone.Identifier
+drwxr-xr-x 2 alexts14 alexts14 4.0K Mar 21 10:37 SRR21882792
+-rw-r--r-- 1 alexts14 alexts14 3.8M Mar 21 10:43 SRR21882792.fastq
+-rw-r--r-- 1 alexts14 alexts14 3.9G Mar 21 10:49 SRR21882792_1.fastq
+-rw-r--r-- 1 alexts14 alexts14 602K Mar 21 11:01 SRR21882792_1_fastqc.html
+-rw-r--r-- 1 alexts14 alexts14 367K Mar 21 11:01 SRR21882792_1_fastqc.zip
+-rw-r--r-- 1 alexts14 alexts14 3.9G Mar 21 10:49 SRR21882792_2.fastq
+-rw-r--r-- 1 alexts14 alexts14 610K Mar 21 11:03 SRR21882792_2_fastqc.html
+-rw-r--r-- 1 alexts14 alexts14 369K Mar 21 11:03 SRR21882792_2_fastqc.zip
+-rw-r--r-- 1 alexts14 alexts14  11M Mar 31 21:10 SRR21882792_test_Aligned.sortedByCoord.out.bam
+-rw-r--r-- 1 alexts14 alexts14 2.0K Mar 31 21:10 SRR21882792_test_Log.final.out
+-rw-r--r-- 1 alexts14 alexts14 7.0K Mar 31 21:10 SRR21882792_test_Log.out
+-rw-r--r-- 1 alexts14 alexts14  482 Mar 31 21:10 SRR21882792_test_Log.progress.out
+-rw-r--r-- 1 alexts14 alexts14  81K Mar 31 21:10 SRR21882792_test_SJ.out.tab
+drwxr-xr-x 2 alexts14 alexts14 4.0K Mar 20 14:23 fasterq.tmp.GabanouMelissa.1568
+drwxr-xr-x 2 alexts14 alexts14 4.0K Mar 28 14:55 star_index_full
+-rw-r--r-- 1 alexts14 alexts14 1.3K Mar 28 15:00 star_log.txt
+(NMR-env) alexts14@GabanouMelissa:~/NMR_project$
+```
