@@ -689,3 +689,12 @@ Explanation:
 - Fourth = unmapped reads
 ### We will check chromosome OX090953.1 because it has the highest read count by far.
 ![image](https://github.com/user-attachments/assets/4d323cbe-dc96-4cd8-bb5f-257df27cf879)
+✔ Coverage
+✔ Junctions
+✔ Alignments
+✔ Gene annotation below
+
+This means:
+
+✅ The test alignment is correctly indexed and visualized
+✅ Reads are properly spliced (notice the arcs)
