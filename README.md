@@ -544,3 +544,55 @@ Mar 31 21:10:06 ..... started sorting BAM
 Mar 31 21:10:12 ..... finished successfully
 ```
 This was the process and the duration of the 100000 read alignment
+# 02.04.2025
+Next steps
+```
+(NMR-env) alexts14@GabanouMelissa:~/NMR_project$ cat SRR21882792_test_Log.final.out
+                                 Started job on |       Mar 31 13:58:15
+                             Started mapping on |       Mar 31 14:05:05
+                                    Finished on |       Mar 31 21:10:12
+       Mapping speed, Million of reads per hour |       0.01
+
+                          Number of input reads |       100000
+                      Average input read length |       238
+                                    UNIQUE READS:
+                   Uniquely mapped reads number |       94204
+                        Uniquely mapped reads % |       94.20%
+                          Average mapped length |       236.44
+                       Number of splices: Total |       19810
+            Number of splices: Annotated (sjdb) |       1825
+                       Number of splices: GT/AG |       19328
+                       Number of splices: GC/AG |       94
+                       Number of splices: AT/AC |       4
+               Number of splices: Non-canonical |       384
+                      Mismatch rate per base, % |       0.42%
+                         Deletion rate per base |       0.11%
+                        Deletion average length |       1.82
+                        Insertion rate per base |       0.02%
+                       Insertion average length |       1.40
+                             MULTI-MAPPING READS:
+        Number of reads mapped to multiple loci |       2369
+             % of reads mapped to multiple loci |       2.37%
+        Number of reads mapped to too many loci |       904
+             % of reads mapped to too many loci |       0.90%
+                                  UNMAPPED READS:
+  Number of reads unmapped: too many mismatches |       0
+       % of reads unmapped: too many mismatches |       0.00%
+            Number of reads unmapped: too short |       884
+                 % of reads unmapped: too short |       0.88%
+                Number of reads unmapped: other |       1639
+                     % of reads unmapped: other |       1.64%
+                                  CHIMERIC READS:
+                       Number of chimeric reads |       0
+                            % of chimeric reads |       0.00%
+```
+This is the alignment report. 
+Overview
+Metric	                     Value                       	Comment
+Total reads	                100,000	           Exactly the test you asked for
+Average read length	        238 bp	           Very typical for RNA-seq PE data
+Uniquely mapped reads	      94.20%	           Excellent (anything above ~75-80% is generally good)
+Multi-mapped reads	        2.37%	             Very normal for RNA-seq
+Too many loci	              0.90%	             Also acceptable
+Unmapped	                  2.52%	             Combined (too short + other), very low and healthy
+Chimeric reads	            0%	               Not a problem unless you expect structural variants
