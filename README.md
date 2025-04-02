@@ -587,12 +587,105 @@ Next steps
                             % of chimeric reads |       0.00%
 ```
 This is the alignment report. 
-Overview
-Metric	                     Value                       	Comment
-Total reads	                100,000	           Exactly the test you asked for
-Average read length	        238 bp	           Very typical for RNA-seq PE data
-Uniquely mapped reads	      94.20%	           Excellent (anything above ~75-80% is generally good)
-Multi-mapped reads	        2.37%	             Very normal for RNA-seq
-Too many loci	              0.90%	             Also acceptable
-Unmapped	                  2.52%	             Combined (too short + other), very low and healthy
-Chimeric reads	            0%	               Not a problem unless you expect structural variants
+### Overview
+Total reads: 100,000 (Exactly the test we asked for). Average read length: 238 bp (Very typical for RNA-seq PE data).
+Uniquely mapped reads:      94.20%	           (Excellent (anything above ~75-80% is generally good)).
+Multi-mapped reads:	        2.37%	             (Very normal for RNA-seq).
+Too many loci:	              0.90%	             (Also acceptable.\).
+Unmapped:	                  2.52%	             (Combined (too short + other), very low and healthy).
+Chimeric reads:	            0%	               (Not a problem unless you expect structural variants).
+Then first, we indexed the BAM file (required for viewing & counting)
+```
+(NMR-env) alexts14@GabanouMelissa:~/NMR_project$ samtools index SRR21882792_test_Aligned.sortedByCoord.out.bam
+```
+Second, check alignment content
+```
+(NMR-env) alexts14@GabanouMelissa:~/NMR_project$ samtools view SRR21882792_test_Aligned.sortedByCoord.out.bam | head -n 10
+SRR21882792.88324       419     OX090941.1      2689716 0       69M     =       2689716    69      CTAAGATTTTGTTCCTATTTTTCCATTTTCTCATATTAATCCCATTCCCTTCTATCCTTTCCCCTAGCC      AAFFFJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJFJJJJJJJJJJJJJFJJJJFJF   NH:i:10    HI:i:5  AS:i:136        nM:i:0
+SRR21882792.88324       339     OX090941.1      2689716 0       69M     =       2689716    -69     CTAAGATTTTGTTCCTATTTTTCCATTTTCTCATATTAATCCCATTCCCTTCTATCCTTTCCCCTAGCC      JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJFJJJJJJJJJFFFAA   NH:i:10    HI:i:5  AS:i:136        nM:i:0
+SRR21882792.35054       147     OX090941.1      9372519 255     26M1513N79M734N19M
+=       9372528 -2362   CCTTTATGTTCTCAGAATAAGGGTTCTGAGGATGAAAATCAGGCCTGAAACCTTGAGGGAGCTCTACTTCTTCCATGTTCTTTGAATTCTCTGAAGAGGCAGGAATGGAAGCATTTTCTTCTTT       AAJJJJJJFF7F<JJJJJJFFJJJFJJJJAJJJJJJJF<JFJJJJFJJJJJJJJ<FJJ<JFA-AJJJJJAJFFAJFJJJJJJJJJJJJJJJFAA7<JJJJJFJJJAFJJJJJAFJJJJJFFFAA  NH:i:1  HI:i:1  AS:i:216        nM:i:10
+SRR21882792.35055       147     OX090941.1      9372519 255     26M1513N79M734N19M
+=       9372528 -2362   CCTTTATGTTCTCAGAATAAGGGTTCTGAGGATGAAAATCAGGCCTGAAACCTTGAGGGAGCTCTACTTCTTCCATGTTCTTTGAATTCTCTGAAGAGGCAGGAATGGAAGCATTTTCTTCTTT       AJJJJJJJJJAJJJFJJJJFJJJJJJJFFJFJJFJJF<F-AAA-FJAA<FAAFJJJJJJF<JFFJFJJJJJFAAJFJJJFJFJFJJJJJJJJJFJJJJAF-AFFJJJJFJJJJJJFFFFFFFAA  NH:i:1  HI:i:1  AS:i:216        nM:i:10
+SRR21882792.35053       99      OX090941.1      9372524 255     15S21M1513N79M734N35M      =       9374057 2378    GTCAACATTTCCTTTATGTTCTCAGAATAAGGGTTCTGAGGATGAAAATCAGGCCTGAAACCTTGAGGGAGCTCTACTTCTTCCATGTTCTTTGAATTCTCTGAAGAGGCAGGAATGGAAGCATTTTCTTCTTTCCTAAGACTCTGTAAT        AAFFFJFJJJJJJFJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJFJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJFJJJJJJJJJJJJJJJJJFFJJFJFJJJJJJJF        NH:i:1  HI:i:1  AS:i:223        nM:i:10
+SRR21882792.35054       99      OX090941.1      9372528 255     9S17M1513N79M734N19M       =       9372519 2362    CCTTTATGTTCTCAGAATAAGGGTTCTGAGGATGAAAATCAGGCCTGAAACCTTGAGGGAGCTCTACTTCTTCCATGTTCTTTGAATTCTCTGAAGAGGCAGGAATGGAAGCATTTTCTTCTTT       AAAF<JJJFJJJFFJJFFJAJJFAJJJJJFJJJJJJFFFJAFJJ<FAJJJJJFJJF<AA-AJFJJJJJJJJJJ<AF<FFA-FJJJJJJ<JFFJFFFAA<JJ<A<AAA<FA7A<AFF-7<AFFAF  NH:i:1  HI:i:1  AS:i:216        nM:i:10
+SRR21882792.35055       99      OX090941.1      9372528 255     9S17M1513N79M734N19M       =       9372519 2362    CCTTTATGTTCTCAGAATAAGGGTTCTGAGGATGAAAATCAGGCCTGAAACCTTGAGGGAGCTCTACTTCTTCCATGTTCTTTGAATTCTCTGAAGAGGCAGGAATGGAAGCATTTTCTTCTTT       AAFFFJJFFJJJJJFJJJJJJJJJJJAJJFFJFJJJJJJFJJJJJJJJFJFFJJJJFJ<A<-FJFFJJF-AA<-JA<A----7-AF<7<F7F<FJFJF-FJA-<FF--FJAFJ777FAFFFAF<  NH:i:1  HI:i:1  AS:i:216        nM:i:10
+SRR21882792.35053       147     OX090941.1      9374057 255     35S80M734N31M4S =
+     9372524    -2378   GTCAACATTTCCTTTATGTTCTCAGAATAAGGGTTCTGAGGATGAAAATCAGGCCTGAAACCTTGAGGGAGCTCTACTTCTTCCATGTTCTTTGAATTCTCTGAAGAGGCAGGAATGGAAGCATTTTCTTCTTTCCTAAGACTCTGTAAT        JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJFJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJFJJJJJJJJJJJJJJJFJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJFFFAANH:i:1  HI:i:1  AS:i:223        nM:i:10
+SRR21882792.35051       99      OX090941.1      9374089 255     1S48M734N56M2S  =
+     9374871    838     GGGCGCTCTACTTCTTCCATGTTCTTTGAATTCTCTGAAGAGGCAGGAATGGAAGCATTTTCTTCTTTCCTAAGACTCTGTAATGCTTTTATCTGCTGAGATATTAT        A-AAAJJJJJJJJJJJJJJJFJFAJAJJJFJJJJFAJFJJJJFJJJF<AAAFF<JJA---FFFFFFJJJAJ<7A777FFJJFJJJJJJJJAJJFFFF-FJFFJ<FFJ
+     NH:i:1     HI:i:1  AS:i:146        nM:i:6
+SRR21882792.35052       99      OX090941.1      9374089 255     1S48M734N56M2S  =
+     9374089    838     GGGCGCTCTACTTCTTCCATGTTCTTTGAATTCTCTGAAGAGGCAGGAATGGAAGCATTTTCTTCTTTCCTAAGACTCTGTAATGCTTTTATCTGCTGAGATATTAT        AAFFFJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJFJJJJJFJJJJJJJJJJ7FFAAAFJ7AFFFFAAAAAFF7-FF-FF
+     NH:i:1     HI:i:1  AS:i:190        nM:i:8
+```
+Third, get a summary of the BAM file
+```
+(NMR-env) alexts14@GabanouMelissa:~/NMR_project$ samtools flagstat SRR21882792_test_Aligned.sortedByCoord.out.bam
+206188 + 0 in total (QC-passed reads + QC-failed reads)
+193137 + 0 primary
+13051 + 0 secondary
+0 + 0 supplementary
+0 + 0 duplicates
+0 + 0 primary duplicates
+206188 + 0 mapped (100.00% : N/A)
+193137 + 0 primary mapped (100.00% : N/A)
+193137 + 0 paired in sequencing
+96571 + 0 read1
+96566 + 0 read2
+193128 + 0 properly paired (100.00% : N/A)
+193128 + 0 with itself and mate mapped
+9 + 0 singletons (0.00% : N/A)
+0 + 0 with mate mapped to a different chr
+0 + 0 with mate mapped to a different chr (mapQ>=5)
+```
+Total alignments	206,188	 (we had paired-end, so this is close to 2 x 100,000 reads).
+Primary mapped	193,137	(Primary alignments, no funny secondary only junk).
+Secondary alignments	13,051	(STAR reports secondaries when allowing multi-mapping (we had NH:i:10 tags in your SAM lines)).
+Properly paired	193,128	(Proper pairing is almost perfect (this is gold)).
+Singleton	9	(Singletons are negligible).
+Duplicates	0	(STAR does not mark duplicates by default, so this is expected).
+### Next step will be to use IGV to check the aligned seq.
+To do that we need to find the regions with a lot of reads (high coverage) to visualize them easily in IGV. 
+```
+(NMR-env) alexts14@GabanouMelissa:~/NMR_project$ samtools idxstats SRR21882792_test_Aligned.sortedByCoord.out.bam
+OX090941.1      126681680       476     0
+OX090942.1      131346783       292     0
+OX090943.1      124509033       266     0
+OX090944.1      121083042       302     0
+OX090945.1      119101870       1614    0
+OX090946.1      118199489       252     0
+OX090947.1      101507220       255     0
+OX090948.1      100330867       278     0
+OX090949.1      97794639        2226    0
+OX090950.1      94825129        584     0
+OX090951.1      88157664        205     0
+OX090952.1      87863200        236     0
+OX090953.1      82497129        168130  0
+OX090954.1      76838549        256     0
+OX090955.1      76365940        390     0
+OX090956.1      76437676        198     0
+OX090957.1      71606942        730     0
+OX090958.1      67431141        644     0
+OX090959.1      60928233        250     0
+OX090960.1      61068310        238     0
+OX090961.1      56435557        114     0
+OX090962.1      59689252        162     0
+OX090963.1      53761172        15072   0
+OX090964.1      52691189        138     0
+OX090965.1      46678892        1328    0
+OX090966.1      44400560        134     0
+OX090967.1      38566542        104     0
+OX090968.1      32538853        86      0
+OX090969.1      23277160        92      0
+OX090970.1      145805425       554     0
+OX090940.1      61021973        10582   0
+OX090971.1      16428   0       0
+```
+Explanation:
+- First column = chromosome
+- Second = chromosome length
+- Third = number of mapped reads
+- Fourth = unmapped reads
+### We will check chromosome OX090953.1 because it has the highest read count by far.
+![image](https://github.com/user-attachments/assets/4d323cbe-dc96-4cd8-bb5f-257df27cf879)
