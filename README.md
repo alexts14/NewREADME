@@ -527,3 +527,20 @@ drwxr-xr-x 2 alexts14 alexts14 4.0K Mar 28 14:55 star_index_full
 -rw-r--r-- 1 alexts14 alexts14 1.3K Mar 28 15:00 star_log.txt
 (NMR-env) alexts14@GabanouMelissa:~/NMR_project$
 ```
+```
+(NMR-env) alexts14@GabanouMelissa:~/NMR_project$ STAR --runThreadN 4 \
+>      --genomeDir ~/NMR_project/star_index_full \
+>      --readFilesIn SRR21882792_1.fastq SRR21882792_2.fastq \
+>      --outFileNamePrefix SRR21882792_test_ \
+>      --readMapNumber 100000 \
+>      --outSAMtype BAM SortedByCoordinate
+        /home/alexts14/miniconda3/envs/NMR-env/bin/STAR-avx2 --runThreadN 4 --genomeDir /home/alexts14/NMR_project/star_index_full --readFilesIn SRR21882792_1.fastq SRR21882792_2.fastq --outFileNamePrefix SRR21882792_test_ --readMapNumber 100000 --outSAMtype BAM SortedByCoordinate
+        STAR version: 2.7.11b   compiled: 2024-11-25T09:14:51+0000 :/opt/conda/conda-bld/star_1732525954305/work/source
+Mar 31 13:58:15 ..... started STAR run
+Mar 31 13:58:15 ..... loading genome
+Mar 31 14:05:05 ..... started mapping
+Mar 31 21:10:00 ..... finished mapping
+Mar 31 21:10:06 ..... started sorting BAM
+Mar 31 21:10:12 ..... finished successfully
+```
+This was the process and the duration of the 100000 read alignment
