@@ -692,7 +692,7 @@ Explanation:
 ✔ Coverage
 ✔ Junctions
 ✔ Alignments
-✔ Gene annotation below
+
 
 This means:
 
@@ -1085,3 +1085,5 @@ maxPairedFragmentLength: 1000
 ```
 So, we created a new env and made the .bw file here and copied it to windows so that we can visualize it in IGV
 ![image](https://github.com/user-attachments/assets/521db47c-04cb-4888-8093-f3c7ba387a01)
+# 04.04.2025
+It seems like something is wrong with the gtf file, as no gene annotations are appear in IGV
