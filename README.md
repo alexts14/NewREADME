@@ -652,4 +652,290 @@ total 761M
 -rw-r--r-- 1 alexts14 alexts14 5.3K Apr 25 15:11 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.MT.fa.gz
 -rw-r--r-- 1 alexts14 alexts14  46M Apr 25 15:12 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.X.fa.gz
 (NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes$
+(NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes$ gunzip *.fa.gz
+(NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes$ ls -lh
+total 2.4G
+-rw-r--r-- 1 alexts14 alexts14 123M Apr 25 15:00 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.1.fa
+-rw-r--r-- 1 alexts14 alexts14  92M Apr 25 15:07 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.10.fa
+-rw-r--r-- 1 alexts14 alexts14  86M Apr 25 15:07 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.11.fa
+-rw-r--r-- 1 alexts14 alexts14  86M Apr 25 15:07 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.12.fa
+-rw-r--r-- 1 alexts14 alexts14  80M Apr 25 15:07 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.13.fa
+-rw-r--r-- 1 alexts14 alexts14  75M Apr 25 15:08 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.14.fa
+-rw-r--r-- 1 alexts14 alexts14  75M Apr 25 15:08 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.15.fa
+-rw-r--r-- 1 alexts14 alexts14  75M Apr 25 15:08 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.16.fa
+-rw-r--r-- 1 alexts14 alexts14  70M Apr 25 15:08 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.17.fa
+-rw-r--r-- 1 alexts14 alexts14  66M Apr 25 15:08 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.18.fa
+-rw-r--r-- 1 alexts14 alexts14  60M Apr 25 15:09 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.19.fa
+-rw-r--r-- 1 alexts14 alexts14 128M Apr 25 15:02 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.2.fa
+-rw-r--r-- 1 alexts14 alexts14  60M Apr 25 15:09 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.20.fa
+-rw-r--r-- 1 alexts14 alexts14  55M Apr 25 15:09 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.21.fa
+-rw-r--r-- 1 alexts14 alexts14  58M Apr 25 15:09 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.22.fa
+-rw-r--r-- 1 alexts14 alexts14  53M Apr 25 15:09 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.23.fa
+-rw-r--r-- 1 alexts14 alexts14  52M Apr 25 15:10 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.24.fa
+-rw-r--r-- 1 alexts14 alexts14  46M Apr 25 15:10 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.25.fa
+-rw-r--r-- 1 alexts14 alexts14  44M Apr 25 15:11 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.26.fa
+-rw-r--r-- 1 alexts14 alexts14  38M Apr 25 15:11 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.27.fa
+-rw-r--r-- 1 alexts14 alexts14  32M Apr 25 15:11 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.28.fa
+-rw-r--r-- 1 alexts14 alexts14  23M Apr 25 15:11 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.29.fa
+-rw-r--r-- 1 alexts14 alexts14 121M Apr 25 15:02 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.3.fa
+-rw-r--r-- 1 alexts14 alexts14 118M Apr 25 15:03 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.4.fa
+-rw-r--r-- 1 alexts14 alexts14 116M Apr 25 15:05 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.5.fa
+-rw-r--r-- 1 alexts14 alexts14 115M Apr 25 15:06 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.6.fa
+-rw-r--r-- 1 alexts14 alexts14  99M Apr 25 15:06 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.7.fa
+-rw-r--r-- 1 alexts14 alexts14  98M Apr 25 15:06 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.8.fa
+-rw-r--r-- 1 alexts14 alexts14  95M Apr 25 15:07 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.9.fa
+-rw-r--r-- 1 alexts14 alexts14  17K Apr 25 15:11 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.MT.fa
+-rw-r--r-- 1 alexts14 alexts14 142M Apr 25 15:12 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.X.fa
+(NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes$ cat *.fa > Hglaber_combined_genome.fa
+(NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes$ ls -lh
+total 4.7G
+-rw-r--r-- 1 alexts14 alexts14 123M Apr 25 15:00 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.1.fa
+-rw-r--r-- 1 alexts14 alexts14  92M Apr 25 15:07 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.10.fa
+-rw-r--r-- 1 alexts14 alexts14  86M Apr 25 15:07 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.11.fa
+-rw-r--r-- 1 alexts14 alexts14  86M Apr 25 15:07 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.12.fa
+-rw-r--r-- 1 alexts14 alexts14  80M Apr 25 15:07 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.13.fa
+-rw-r--r-- 1 alexts14 alexts14  75M Apr 25 15:08 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.14.fa
+-rw-r--r-- 1 alexts14 alexts14  75M Apr 25 15:08 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.15.fa
+-rw-r--r-- 1 alexts14 alexts14  75M Apr 25 15:08 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.16.fa
+-rw-r--r-- 1 alexts14 alexts14  70M Apr 25 15:08 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.17.fa
+-rw-r--r-- 1 alexts14 alexts14  66M Apr 25 15:08 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.18.fa
+-rw-r--r-- 1 alexts14 alexts14  60M Apr 25 15:09 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.19.fa
+-rw-r--r-- 1 alexts14 alexts14 128M Apr 25 15:02 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.2.fa
+-rw-r--r-- 1 alexts14 alexts14  60M Apr 25 15:09 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.20.fa
+-rw-r--r-- 1 alexts14 alexts14  55M Apr 25 15:09 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.21.fa
+-rw-r--r-- 1 alexts14 alexts14  58M Apr 25 15:09 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.22.fa
+-rw-r--r-- 1 alexts14 alexts14  53M Apr 25 15:09 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.23.fa
+-rw-r--r-- 1 alexts14 alexts14  52M Apr 25 15:10 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.24.fa
+-rw-r--r-- 1 alexts14 alexts14  46M Apr 25 15:10 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.25.fa
+-rw-r--r-- 1 alexts14 alexts14  44M Apr 25 15:11 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.26.fa
+-rw-r--r-- 1 alexts14 alexts14  38M Apr 25 15:11 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.27.fa
+-rw-r--r-- 1 alexts14 alexts14  32M Apr 25 15:11 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.28.fa
+-rw-r--r-- 1 alexts14 alexts14  23M Apr 25 15:11 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.29.fa
+-rw-r--r-- 1 alexts14 alexts14 121M Apr 25 15:02 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.3.fa
+-rw-r--r-- 1 alexts14 alexts14 118M Apr 25 15:03 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.4.fa
+-rw-r--r-- 1 alexts14 alexts14 116M Apr 25 15:05 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.5.fa
+-rw-r--r-- 1 alexts14 alexts14 115M Apr 25 15:06 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.6.fa
+-rw-r--r-- 1 alexts14 alexts14  99M Apr 25 15:06 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.7.fa
+-rw-r--r-- 1 alexts14 alexts14  98M Apr 25 15:06 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.8.fa
+-rw-r--r-- 1 alexts14 alexts14  95M Apr 25 15:07 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.9.fa
+-rw-r--r-- 1 alexts14 alexts14  17K Apr 25 15:11 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.MT.fa
+-rw-r--r-- 1 alexts14 alexts14 142M Apr 25 15:12 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.X.fa
+-rw-r--r-- 1 alexts14 alexts14 2.4G Apr 25 15:58 Hglaber_combined_genome.fa
+(NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes$ head Hglaber_combined_genome.fa
+>1 dna_sm:primary_assembly primary_assembly:Naked_mole-rat_paternal:1:1:126681680:1 REF
+ACAGCCGCGCCCACAGCCGTCTCACCACCTCAGGCCACCTCCTGAGGCCCGAGCCCCTAG
+GGGTCCCCTCCCCACGGCTCCTGCGCCATCCGTGTGCTCCTCTGGCGGGGCTCCACACAC
+GGCAGGACACGACAAGGAATTATTCACTTCTCTCCAGTACGTGGAAATTCTCAACAGTAC
+TGCAAGACGCCCTATTTTATTTAAATAGTTATAAGAACATAAGATCCCCAAATTTTTaaa
+aaaaGAATAAACAATGTACAACGGTTTTTGAAATATGAAAGTGAAGTTTCAGATATGGAT
+TTCCAGGCATGAATGATAAGTCAACTCAAGTGTATCAAACTGGGGTTTCCTTAAACCCTA
+CATGTTATATACCTTTTGCGTAGGTCGGACTATCTCATCACCATTATGACCTATGCACTG
+TTCCCAAGGTAAGGACACAGAAAATTTGCAGGGGGGTAGTGGGAAGGGGAGAATAGAGAG
+GGAGACAAAAAGGTATTGAAAATGATCAAAATACAATATATATATACCAGTTTCTCAAAA
+(NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes$ # Extract only the chromosome/scaffold name before the first space
+ 's/ .*(NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes$ sed 's/ .*$//' Hglaber_combined_genome.fa > Hglaber_combined_genome_clean.fa
+(NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes$ head Hglaber_combined_genome_clean.fa
+>1
+ACAGCCGCGCCCACAGCCGTCTCACCACCTCAGGCCACCTCCTGAGGCCCGAGCCCCTAG
+GGGTCCCCTCCCCACGGCTCCTGCGCCATCCGTGTGCTCCTCTGGCGGGGCTCCACACAC
+GGCAGGACACGACAAGGAATTATTCACTTCTCTCCAGTACGTGGAAATTCTCAACAGTAC
+TGCAAGACGCCCTATTTTATTTAAATAGTTATAAGAACATAAGATCCCCAAATTTTTaaa
+aaaaGAATAAACAATGTACAACGGTTTTTGAAATATGAAAGTGAAGTTTCAGATATGGAT
+TTCCAGGCATGAATGATAAGTCAACTCAAGTGTATCAAACTGGGGTTTCCTTAAACCCTA
+CATGTTATATACCTTTTGCGTAGGTCGGACTATCTCATCACCATTATGACCTATGCACTG
+TTCCCAAGGTAAGGACACAGAAAATTTGCAGGGGGGTAGTGGGAAGGGGAGAATAGAGAG
+GGAGACAAAAAGGTATTGAAAATGATCAAAATACAATATATATATACCAGTTTCTCAAAA
+(NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes$ wget ftp://ftp.ensembl.org/pub/release-113/gff3/heterocephalus_glaber_male/Heterocephalus_glaber_male.Naked_mole-rat_paternal.113.gff3.gz
+p Heterocephalus_glaber_male.Naked_mole-rat_paternal.113.gff3.gz
+--2025-04-25 16:16:57--  ftp://ftp.ensembl.org/pub/release-113/gff3/heterocephalus_glaber_male/Heterocephalus_glaber_male.Naked_mole-rat_paternal.113.gff3.gz
+           => ‘Heterocephalus_glaber_male.Naked_mole-rat_paternal.113.gff3.gz’
+Resolving ftp.ensembl.org (ftp.ensembl.org)... 193.62.193.169
+Connecting to ftp.ensembl.org (ftp.ensembl.org)|193.62.193.169|:21... connected.
+Logging in as anonymous ... Logged in!
+==> SYST ... done.    ==> PWD ... done.
+==> TYPE I ... done.  ==> CWD (1) /pub/release-113/gff3/heterocephalus_glaber_male ... done.
+==> SIZE Heterocephalus_glaber_male.Naked_mole-rat_paternal.113.gff3.gz ... 16724289
+==> PASV ... done.    ==> RETR Heterocephalus_glaber_male.Naked_mole-rat_paternal.113.gff3.gz ... done.
+Length: 16724289 (16M) (unauthoritative)
+
+Heterocephalus_glaber_male.Na 100%[=================================================>]  15.95M  5.01MB/s    in 3.3s
+
+2025-04-25 16:17:01 (4.88 MB/s) - ‘Heterocephalus_glaber_male.Naked_mole-rat_paternal.113.gff3.gz’ saved [16724289]
+
+(NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes$ gunzip Heterocephalus_glaber_male.Naked_mole-rat_paternal.113.gff3.gz
+(NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes$ samtools faidx Hglaber_combined_genome_clean.fa
+(NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes$ picard CreateSequenceDictionary \
+ R=Hgl>     R=Hglaber_combined_genome_clean.fa \
+>     O=Hglaber_combined_genome_clean.dict
+/home/alexts14/miniconda3/envs/NMR-env/bin/picard: line 5: warning: setlocale: LC_ALL: cannot change locale (en_US.UTF-8): No such file or directory
+INFO    2025-04-25 16:54:37     CreateSequenceDictionary
+
+********** NOTE: Picard's command line syntax is changing.
+**********
+********** For more information, please see:
+********** https://github.com/broadinstitute/picard/wiki/Command-Line-Syntax-Transition-For-Users-(Pre-Transition)
+**********
+********** The command line looks like this in the new syntax:
+**********
+**********    CreateSequenceDictionary -R Hglaber_combined_genome_clean.fa -O Hglaber_combined_genome_clean.dict
+**********
+
+
+16:54:38.458 INFO  NativeLibraryLoader - Loading libgkl_compression.so from jar:file:/home/alexts14/miniconda3/envs/NMR-env/share/picard-2.20.4-0/picard.jar!/com/intel/gkl/native/libgkl_compression.so
+[Fri Apr 25 16:54:38 CEST 2025] CreateSequenceDictionary OUTPUT=Hglaber_combined_genome_clean.dict REFERENCE=Hglaber_combined_genome_clean.fa    TRUNCATE_NAMES_AT_WHITESPACE=true NUM_SEQUENCES=2147483647 VERBOSITY=INFO QUIET=false VALIDATION_STRINGENCY=STRICT COMPRESSION_LEVEL=5 MAX_RECORDS_IN_RAM=500000 CREATE_INDEX=false CREATE_MD5_FILE=false GA4GH_CLIENT_SECRETS=client_secrets.json USE_JDK_DEFLATER=false USE_JDK_INFLATER=false
+[Fri Apr 25 16:54:38 CEST 2025] Executing as alexts14@GabanouMelissa on Linux 5.15.167.4-microsoft-standard-WSL2 amd64; OpenJDK 64-Bit Server VM 11.0.13+7-b1751.21; Deflater: Intel; Inflater: Intel; Provider GCS is not available; Picard version: 2.20.4-SNAPSHOT
+[Fri Apr 25 16:54:58 CEST 2025] picard.sam.CreateSequenceDictionary done. Elapsed time: 0.33 minutes.
+Runtime.totalMemory()=536870912
+(NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes$ ls -lh
+total 7.2G
+-rw-r--r-- 1 alexts14 alexts14 209M Apr 25 16:17 Heterocephalus_glaber_male.Naked_mole-rat_paternal.113.gff3
+-rw-r--r-- 1 alexts14 alexts14 123M Apr 25 15:00 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.1.fa
+-rw-r--r-- 1 alexts14 alexts14  92M Apr 25 15:07 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.10.fa
+-rw-r--r-- 1 alexts14 alexts14  86M Apr 25 15:07 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.11.fa
+-rw-r--r-- 1 alexts14 alexts14  86M Apr 25 15:07 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.12.fa
+-rw-r--r-- 1 alexts14 alexts14  80M Apr 25 15:07 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.13.fa
+-rw-r--r-- 1 alexts14 alexts14  75M Apr 25 15:08 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.14.fa
+-rw-r--r-- 1 alexts14 alexts14  75M Apr 25 15:08 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.15.fa
+-rw-r--r-- 1 alexts14 alexts14  75M Apr 25 15:08 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.16.fa
+-rw-r--r-- 1 alexts14 alexts14  70M Apr 25 15:08 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.17.fa
+-rw-r--r-- 1 alexts14 alexts14  66M Apr 25 15:08 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.18.fa
+-rw-r--r-- 1 alexts14 alexts14  60M Apr 25 15:09 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.19.fa
+-rw-r--r-- 1 alexts14 alexts14 128M Apr 25 15:02 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.2.fa
+-rw-r--r-- 1 alexts14 alexts14  60M Apr 25 15:09 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.20.fa
+-rw-r--r-- 1 alexts14 alexts14  55M Apr 25 15:09 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.21.fa
+-rw-r--r-- 1 alexts14 alexts14  58M Apr 25 15:09 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.22.fa
+-rw-r--r-- 1 alexts14 alexts14  53M Apr 25 15:09 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.23.fa
+-rw-r--r-- 1 alexts14 alexts14  52M Apr 25 15:10 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.24.fa
+-rw-r--r-- 1 alexts14 alexts14  46M Apr 25 15:10 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.25.fa
+-rw-r--r-- 1 alexts14 alexts14  44M Apr 25 15:11 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.26.fa
+-rw-r--r-- 1 alexts14 alexts14  38M Apr 25 15:11 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.27.fa
+-rw-r--r-- 1 alexts14 alexts14  32M Apr 25 15:11 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.28.fa
+-rw-r--r-- 1 alexts14 alexts14  23M Apr 25 15:11 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.29.fa
+-rw-r--r-- 1 alexts14 alexts14 121M Apr 25 15:02 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.3.fa
+-rw-r--r-- 1 alexts14 alexts14 118M Apr 25 15:03 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.4.fa
+-rw-r--r-- 1 alexts14 alexts14 116M Apr 25 15:05 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.5.fa
+-rw-r--r-- 1 alexts14 alexts14 115M Apr 25 15:06 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.6.fa
+-rw-r--r-- 1 alexts14 alexts14  99M Apr 25 15:06 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.7.fa
+-rw-r--r-- 1 alexts14 alexts14  98M Apr 25 15:06 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.8.fa
+-rw-r--r-- 1 alexts14 alexts14  95M Apr 25 15:07 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.9.fa
+-rw-r--r-- 1 alexts14 alexts14  17K Apr 25 15:11 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.MT.fa
+-rw-r--r-- 1 alexts14 alexts14 142M Apr 25 15:12 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.X.fa
+-rw-r--r-- 1 alexts14 alexts14 2.4G Apr 25 15:58 Hglaber_combined_genome.fa
+-rw-r--r-- 1 alexts14 alexts14 4.0K Apr 25 16:54 Hglaber_combined_genome_clean.dict
+-rw-r--r-- 1 alexts14 alexts14 2.4G Apr 25 16:08 Hglaber_combined_genome_clean.fa
+-rw-r--r-- 1 alexts14 alexts14  875 Apr 25 16:53 Hglaber_combined_genome_clean.fa.fai
+(NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes$
 ```
+So I downloaded all the chromosome seperatly, combine them and created the fai and dict files for IGV and also downloaded the gff3 file for the annotations.
+```
+(NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes$ sort -k1,1 -k4,4n Heterocephalus_glaber_male.Naked_mole-rat_paternal.113.gff3 > Heterocephalus_glaber_male.Naked_mole-rat_paternal.113.sorted.gff3
+```
+also the igv needed the sorted gff3
+
+# 28.04.2025
+## TSS and five_prime_UTR
+
+```
+(NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes$ awk '$3 == "gene" { if ($7 == "+") print $1, $4-1, $4, $9; else print $1, $5-1, $5, $9 }' Heterocephalus_glaber_male.Naked_mole-rat_paternal.113.sorted.gff3 > all_genes_TSS.bed
+(NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes$ ls -lh
+total 7.4G
+-rw-r--r-- 1 alexts14 alexts14 209M Apr 25 16:17 Heterocephalus_glaber_male.Naked_mole-rat_paternal.113.gff3
+-rw-r--r-- 1 alexts14 alexts14 209M Apr 28 10:45 Heterocephalus_glaber_male.Naked_mole-rat_paternal.113.sorted.gff3
+-rw-r--r-- 1 alexts14 alexts14 123M Apr 25 15:00 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.1.fa
+-rw-r--r-- 1 alexts14 alexts14  92M Apr 25 15:07 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.10.fa
+-rw-r--r-- 1 alexts14 alexts14  86M Apr 25 15:07 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.11.fa
+-rw-r--r-- 1 alexts14 alexts14  86M Apr 25 15:07 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.12.fa
+-rw-r--r-- 1 alexts14 alexts14  80M Apr 25 15:07 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.13.fa
+-rw-r--r-- 1 alexts14 alexts14  75M Apr 25 15:08 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.14.fa
+-rw-r--r-- 1 alexts14 alexts14  75M Apr 25 15:08 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.15.fa
+-rw-r--r-- 1 alexts14 alexts14  75M Apr 25 15:08 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.16.fa
+-rw-r--r-- 1 alexts14 alexts14  70M Apr 25 15:08 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.17.fa
+-rw-r--r-- 1 alexts14 alexts14  66M Apr 25 15:08 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.18.fa
+-rw-r--r-- 1 alexts14 alexts14  60M Apr 25 15:09 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.19.fa
+-rw-r--r-- 1 alexts14 alexts14 128M Apr 25 15:02 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.2.fa
+-rw-r--r-- 1 alexts14 alexts14  60M Apr 25 15:09 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.20.fa
+-rw-r--r-- 1 alexts14 alexts14  55M Apr 25 15:09 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.21.fa
+-rw-r--r-- 1 alexts14 alexts14  58M Apr 25 15:09 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.22.fa
+-rw-r--r-- 1 alexts14 alexts14  53M Apr 25 15:09 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.23.fa
+-rw-r--r-- 1 alexts14 alexts14  52M Apr 25 15:10 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.24.fa
+-rw-r--r-- 1 alexts14 alexts14  46M Apr 25 15:10 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.25.fa
+-rw-r--r-- 1 alexts14 alexts14  44M Apr 25 15:11 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.26.fa
+-rw-r--r-- 1 alexts14 alexts14  38M Apr 25 15:11 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.27.fa
+-rw-r--r-- 1 alexts14 alexts14  32M Apr 25 15:11 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.28.fa
+-rw-r--r-- 1 alexts14 alexts14  23M Apr 25 15:11 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.29.fa
+-rw-r--r-- 1 alexts14 alexts14 121M Apr 25 15:02 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.3.fa
+-rw-r--r-- 1 alexts14 alexts14 118M Apr 25 15:03 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.4.fa
+-rw-r--r-- 1 alexts14 alexts14 116M Apr 25 15:05 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.5.fa
+-rw-r--r-- 1 alexts14 alexts14 115M Apr 25 15:06 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.6.fa
+-rw-r--r-- 1 alexts14 alexts14  99M Apr 25 15:06 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.7.fa
+-rw-r--r-- 1 alexts14 alexts14  98M Apr 25 15:06 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.8.fa
+-rw-r--r-- 1 alexts14 alexts14  95M Apr 25 15:07 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.9.fa
+-rw-r--r-- 1 alexts14 alexts14  17K Apr 25 15:11 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.MT.fa
+-rw-r--r-- 1 alexts14 alexts14 142M Apr 25 15:12 Heterocephalus_glaber_male.Naked_mole-rat_paternal.dna_sm.primary_assembly.X.fa
+-rw-r--r-- 1 alexts14 alexts14 3.8K Apr 28 10:32 Hglaber_combined_genome.dict
+-rw-r--r-- 1 alexts14 alexts14 2.4G Apr 25 15:58 Hglaber_combined_genome.fa
+-rw-r--r-- 1 alexts14 alexts14  876 Apr 28 10:31 Hglaber_combined_genome.fa.fai
+-rw-r--r-- 1 alexts14 alexts14 4.0K Apr 25 16:54 Hglaber_combined_genome_clean.dict
+-rw-r--r-- 1 alexts14 alexts14 2.4G Apr 25 16:08 Hglaber_combined_genome_clean.fa
+-rw-r--r-- 1 alexts14 alexts14  875 Apr 25 16:53 Hglaber_combined_genome_clean.fa.fai
+-rw-r--r-- 1 alexts14 alexts14 2.9M Apr 28 11:16 all_genes_TSS.bed
+(NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes$ head all_genes_TSS.bed
+1 79208 79209 ID=gene:ENSHGLG00100011751;biotype=protein_coding;gene_id=ENSHGLG00100011751;logic_name=ensembl;version=2
+1 99469 99470 ID=gene:ENSHGLG00100049051;biotype=protein_coding;gene_id=ENSHGLG00100049051;logic_name=ensembl;version=1
+1 155111 155112 ID=gene:ENSHGLG00100047534;biotype=protein_coding;gene_id=ENSHGLG00100047534;logic_name=ensembl;version=1
+1 210342 210343 ID=gene:ENSHGLG00100007061;biotype=protein_coding;gene_id=ENSHGLG00100007061;logic_name=ensembl;version=2
+1 303332 303333 ID=gene:ENSHGLG00100050874;biotype=protein_coding;gene_id=ENSHGLG00100050874;logic_name=ensembl;version=1
+1 471996 471997 ID=gene:ENSHGLG00100009882;biotype=protein_coding;gene_id=ENSHGLG00100009882;logic_name=ensembl;version=2
+1 577761 577762 ID=gene:ENSHGLG00100040381;biotype=protein_coding;gene_id=ENSHGLG00100040381;logic_name=ensembl;version=1
+1 578257 578258 ID=gene:ENSHGLG00100007103;biotype=protein_coding;gene_id=ENSHGLG00100007103;logic_name=ensembl;version=2
+1 717826 717827 ID=gene:ENSHGLG00100050535;biotype=protein_coding;gene_id=ENSHGLG00100050535;logic_name=ensembl;version=1
+1 717754 717755 ID=gene:ENSHGLG00100006540;biotype=protein_coding;gene_id=ENSHGLG00100006540;logic_name=ensembl;version=2
+(NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes$ tail all_genes_TSS.bed
+X 143758228 143758229 ID=gene:ENSHGLG00100035787;biotype=protein_coding;gene_id=ENSHGLG00100035787;logic_name=ensembl;version=1
+X 143885931 143885932 ID=gene:ENSHGLG00100042383;biotype=protein_coding;gene_id=ENSHGLG00100042383;logic_name=ensembl;version=1
+X 144141762 144141763 ID=gene:ENSHGLG00100012734;biotype=protein_coding;gene_id=ENSHGLG00100012734;logic_name=ensembl;version=2
+X 144141387 144141388 ID=gene:ENSHGLG00100045952;biotype=protein_coding;gene_id=ENSHGLG00100045952;logic_name=ensembl;version=1
+X 144216158 144216159 ID=gene:ENSHGLG00100020782;biotype=protein_coding;gene_id=ENSHGLG00100020782;logic_name=ensembl;version=2
+X 144855810 144855811 ID=gene:ENSHGLG00100002557;biotype=protein_coding;gene_id=ENSHGLG00100002557;logic_name=ensembl;version=2
+X 145028277 145028278 ID=gene:ENSHGLG00100020139;biotype=protein_coding;gene_id=ENSHGLG00100020139;logic_name=ensembl;version=2
+X 145608004 145608005 ID=gene:ENSHGLG00100041293;biotype=protein_coding;gene_id=ENSHGLG00100041293;logic_name=ensembl;version=1
+X 145655946 145655947 ID=gene:ENSHGLG00100012745;biotype=protein_coding;gene_id=ENSHGLG00100012745;logic_name=ensembl;version=2
+X 145681433 145681434 ID=gene:ENSHGLG00100035039;biotype=protein_coding;gene_id=ENSHGLG00100035039;logic_name=ensembl;version=1
+(NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes$ awk '$3 == "five_prime_UTR" {print $1, $4, $5, $9}' Heterocephalus_glaber_male.Naked_mole-rat_paternal.113.sorted.gff3 > all_five_prime_UTRs.bed
+(NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes$ awk '{print $0, $3-$2}' all_five_prime_UTRs.bed | sort -k5,5nr | head -n 50 > top50_five_prime_UTRs.bed
+(NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes$ head top50_five_prime_UTRs.bed
+9 73916974 73936875 Parent=transcript:ENSHGLT00100067400 19901
+18 24075644 24095202 Parent=transcript:ENSHGLT00100058256 19558
+1 58707437 58726905 Parent=transcript:ENSHGLT00100057063 19468
+9 73916974 73935347 Parent=transcript:ENSHGLT00100084698 18373
+25 24360387 24378636 Parent=transcript:ENSHGLT00100078466 18249
+10 5660108 5677118 Parent=transcript:ENSHGLT00100058596 17010
+11 74086303 74101943 Parent=transcript:ENSHGLT00100081430 15640
+24 11613210 11628809 Parent=transcript:ENSHGLT00100051176 15599
+11 2687544 2702797 Parent=transcript:ENSHGLT00100076222 15253
+8 12777006 12792152 Parent=transcript:ENSHGLT00100062038 15146
+(NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes$ head all_five_prime_UTRs.bed
+1 76844 76904 Parent=transcript:ENSHGLT00100016094
+1 76844 76904 Parent=transcript:ENSHGLT00100016095
+1 76844 76904 Parent=transcript:ENSHGLT00100041989
+1 76844 76904 Parent=transcript:ENSHGLT00100092820
+1 78262 78607 Parent=transcript:ENSHGLT00100041989
+1 78262 78607 Parent=transcript:ENSHGLT00100092820
+1 79045 79193 Parent=transcript:ENSHGLT00100016094
+1 79045 79209 Parent=transcript:ENSHGLT00100016095
+1 99470 99695 Parent=transcript:ENSHGLT00100047040
+1 99485 99695 Parent=transcript:ENSHGLT00100080349
+(NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes$ tail all_five_prime_UTRs.bed
+X 144854480 144854501 Parent=transcript:ENSHGLT00100003415
+X 144854480 144854501 Parent=transcript:ENSHGLT00100048643
+X 144854480 144854501 Parent=transcript:ENSHGLT00100065317
+X 144855635 144855811 Parent=transcript:ENSHGLT00100003415
+X 144855635 144855811 Parent=transcript:ENSHGLT00100048643
+X 144855635 144855811 Parent=transcript:ENSHGLT00100065317
+X 145607195 145607393 Parent=transcript:ENSHGLT00100044447
+X 145607195 145607393 Parent=transcript:ENSHGLT00100067466
+X 145607913 145608005 Parent=transcript:ENSHGLT00100052989
+X 145681434 145681818 Parent=transcript:ENSHGLT00100051184
+(NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes$
+```
+In summary i created files of the TSS ( all_genes_TSS.bed), the five_prime_UTR (all_five_prime_UTRs.bed) and the top50 UTRs by lenght (top50_five_prime_UTRs.bed)
