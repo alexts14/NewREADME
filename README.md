@@ -943,3 +943,8 @@ In summary i created files of the TSS ( all_genes_TSS.bed), the five_prime_UTR (
 ![image](https://github.com/user-attachments/assets/13b1bfde-06a0-4e28-9fe3-c4e148b17063)
 
 Here is a visual of one of the top50 five_prive_UTR using IGV. 
+
+# 29.04.2025
+## New indexing we the latest ref genome assembly 
+
+
