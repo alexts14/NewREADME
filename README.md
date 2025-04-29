@@ -947,4 +947,83 @@ Here is a visual of one of the top50 five_prive_UTR using IGV.
 # 29.04.2025
 ## New indexing we the latest ref genome assembly 
 
+```
+(base) alexts14@GabanouMelissa:~$ conda activate NMR-env
+(NMR-env) alexts14@GabanouMelissa:~$ cd nmr_chromosomes
+(NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes$ gffread Heterocephalus_glaber_male.Naked_mole-rat_paternal.113.gff3 -T -o Heterocephalus_glaber_male.Naked_mole-rat_paternal.113.gtf
+Command 'gffread' not found, but can be installed with:
+sudo apt install gffread
+(NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes$ sudo apt install gffread
+[sudo] password for alexts14:
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following package was automatically installed and is no longer required:
+  libllvm17t64
+Use 'sudo apt autoremove' to remove it.
+The following additional packages will be installed:
+  libgclib3t64
+The following NEW packages will be installed:
+  gffread libgclib3t64
+0 upgraded, 2 newly installed, 0 to remove and 26 not upgraded.
+Need to get 229 kB of archives.
+After this operation, 689 kB of additional disk space will be used.
+Do you want to continue? [Y/n] y
+Get:1 http://archive.ubuntu.com/ubuntu noble/universe amd64 libgclib3t64 amd64 0.12.7+ds-5ubuntu3 [162 kB]
+Get:2 http://archive.ubuntu.com/ubuntu noble/universe amd64 gffread amd64 0.12.7-4build1 [66.2 kB]
+Fetched 229 kB in 0s (843 kB/s)
+Selecting previously unselected package libgclib3t64:amd64.
+(Reading database ... 40775 files and directories currently installed.)
+Preparing to unpack .../libgclib3t64_0.12.7+ds-5ubuntu3_amd64.deb ...
+Unpacking libgclib3t64:amd64 (0.12.7+ds-5ubuntu3) ...
+Selecting previously unselected package gffread.
+Preparing to unpack .../gffread_0.12.7-4build1_amd64.deb ...
+Unpacking gffread (0.12.7-4build1) ...
+Setting up libgclib3t64:amd64 (0.12.7+ds-5ubuntu3) ...
+Setting up gffread (0.12.7-4build1) ...
+Processing triggers for man-db (2.12.0-4build2) ...
+Processing triggers for libc-bin (2.39-0ubuntu8.4) ...
+(NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes$ gffread Heterocephalus_glaber_male.Naked_mole-rat_paternal.113.gff3 -T -o Heterocephalus_glaber_male.Naked_mole-rat_paternal.113.gtf
+(NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes$ mkdir ~/nmr_chromosomes/STAR_index
+(NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes$ cd ~STAR_index
+-bash: cd: ~STAR_index: No such file or directory
+(NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes$  cd STAR_index
+(NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes/STAR_index$ free -h
+               total        used        free      shared  buff/cache   available
+Mem:           7.8Gi       570Mi       7.3Gi       3.1Mi       138Mi       7.2Gi
+Swap:          4.0Gi          0B       4.0Gi
+(NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes/STAR_index$ sudo fallocate -l 50G /swapfile
+(NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes/STAR_index$ sudo chmod 600 /swapfile
+(NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes/STAR_index$ sudo mkswap /swapfile
+mkswap: /swapfile: warning: wiping old swap signature.
+Setting up swapspace version 1, size = 50 GiB (53687087104 bytes)
+no label, UUID=5c1f84bf-f719-4e6b-acd2-9f210f772392
+(NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes/STAR_index$ sudo swapon /swapfile
+(NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes/STAR_index$ free -h
+               total        used        free      shared  buff/cache   available
+Mem:           7.8Gi       624Mi       7.2Gi       3.1Mi       171Mi       7.1Gi
+Swap:           53Gi          0B        53Gi
+(NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes/STAR_index$ nproc
+12
+(NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes/STAR_index$ STAR --runThreadN 8 \
+>      --runMode genomeGenerate \
+>      --genomeDir ~/nmr_chromosomes/STAR_index/ \
+>      --genomeFastaFiles ~/nmr_chromosomes/Hglaber_combined_genome.fa \
+>      --sjdbGTFfile ~/nmr_chromosomes/Heterocephalus_glaber_male.Naked_mole-rat_paternal.113.gtf \
+-sjdbOv>      --sjdbOverhang 99
+        /home/alexts14/miniconda3/envs/NMR-env/bin/STAR-avx2 --runThreadN 8 --runMode genomeGenerate --genomeDir /home/alexts14/nmr_chromosomes/STAR_index/ --genomeFastaFiles /home/alexts14/nmr_chromosomes/Hglaber_combined_genome.fa --sjdbGTFfile /home/alexts14/nmr_chromosomes/Heterocephalus_glaber_male.Naked_mole-rat_paternal.113.gtf --sjdbOverhang 99
+        STAR version: 2.7.11a   compiled: 2023-09-15T02:58:53+0000 :/opt/conda/conda-bld/star_1694746407721/work/source
+Apr 29 16:48:52 ..... started STAR run
+Apr 29 16:48:52 ... starting to generate Genome files
+Apr 29 16:50:24 ..... processing annotations GTF
+Apr 29 16:50:56 ... starting to sort Suffix Array. This may take a long time...
+Apr 29 16:51:19 ... sorting Suffix Array chunks and saving them to disk...
+STAR --runThreadN 8 \
+     --runMode genomeGenerate \
+     --genomeDir ~/nmr_chromosomes/STAR_index/ \
+     --genomeFastaFiles ~/nmr_chromosomes/Hglaber_combined_genome.fa \
+     --sjdbGTFfile ~/nmr_chromosomes/Heterocephalus_glaber_male.Naked_mole-rat_paternal.113.gtf \
+     --sjdbOverhang 99
+```
 
+Indexing the ref genome again with the gtf from the gff3 to start alignments again!
