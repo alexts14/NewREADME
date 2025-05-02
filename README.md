@@ -1027,3 +1027,70 @@ STAR --runThreadN 8 \
 ```
 
 Indexing the ref genome again with the gtf from the gff3 to start alignments again!
+
+# 02.05.2025
+## Index still running
+
+```
+(NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes/STAR_index$ ls -lh
+total 30G
+-rw-r--r-- 1 alexts14 alexts14 6.4M May  2 04:19 Log.out
+-rw-r--r-- 1 alexts14 alexts14 1.8G Apr 30 16:41 SA_0
+-rw-r--r-- 1 alexts14 alexts14 1.7G Apr 30 23:35 SA_1
+-rw-r--r-- 1 alexts14 alexts14 1.8G May  2 02:38 SA_10
+-rw-r--r-- 1 alexts14 alexts14 1.9G May  2 02:25 SA_11
+-rw-r--r-- 1 alexts14 alexts14 1.8G May  2 02:24 SA_12
+-rw-r--r-- 1 alexts14 alexts14 1.8G May  2 02:36 SA_13
+-rw-r--r-- 1 alexts14 alexts14 1.7G May  2 02:39 SA_14
+-rw-r--r-- 1 alexts14 alexts14 1.7G May  2 02:38 SA_15
+-rw-r--r-- 1 alexts14 alexts14 1.8G May  2 02:37 SA_16
+-rw-r--r-- 1 alexts14 alexts14 1.8G Apr 30 16:45 SA_2
+-rw-r--r-- 1 alexts14 alexts14 1.7G Apr 30 16:42 SA_3
+-rw-r--r-- 1 alexts14 alexts14 1.8G Apr 30 16:35 SA_4
+-rw-r--r-- 1 alexts14 alexts14 1.9G Apr 30 16:46 SA_5
+-rw-r--r-- 1 alexts14 alexts14 1.8G Apr 30 16:47 SA_6
+-rw-r--r-- 1 alexts14 alexts14 1.7G Apr 30 16:44 SA_7
+-rw-r--r-- 1 alexts14 alexts14 1.9G Apr 30 23:22 SA_8
+-rw-r--r-- 1 alexts14 alexts14 1.8G May  2 02:36 SA_9
+drwx------ 2 alexts14 alexts14 4.0K Apr 29 16:48 _STARtmp
+-rw-r--r-- 1 alexts14 alexts14  285 Apr 29 16:50 chrLength.txt
+-rw-r--r-- 1 alexts14 alexts14   83 Apr 29 16:50 chrName.txt
+-rw-r--r-- 1 alexts14 alexts14  368 Apr 29 16:50 chrNameLength.txt
+-rw-r--r-- 1 alexts14 alexts14  332 Apr 29 16:50 chrStart.txt
+-rw-r--r-- 1 alexts14 alexts14  19M Apr 29 16:50 exonGeTrInfo.tab
+-rw-r--r-- 1 alexts14 alexts14 8.3M Apr 29 16:50 exonInfo.tab
+-rw-r--r-- 1 alexts14 alexts14 2.1M Apr 29 16:50 geneInfo.tab
+-rw-r--r-- 1 alexts14 alexts14 6.5M Apr 29 16:50 sjdbList.fromGTF.out.tab
+-rw-r--r-- 1 alexts14 alexts14 5.2M Apr 29 16:50 transcriptInfo.tab
+(NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes/STAR_index$ top
+top - 14:11:29 up 3 days,  4:01,  1 user,  load average: 4.13, 4.07, 4.06
+Tasks:  29 total,   1 running,  28 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.0 us,  0.1 sy,  0.0 ni, 64.8 id, 35.1 wa,  0.0 hi,  0.0 si,  0.0 st
+MiB Mem :   7945.2 total,    125.0 free,   7884.9 used,    128.4 buff/cache
+MiB Swap:  55296.0 total,  42956.6 free,  12339.4 used.     60.2 avail Mem
+
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
+   1307 alexts14  20   0   18.7g   6.9g    208 D   1.5  89.0 305:16.00 STAR-avx2
+      1 root      20   0   21852   2808   1328 S   0.0   0.0   0:24.86 systemd
+      2 root      20   0    2776    180    180 S   0.0   0.0   0:00.02 init-systemd(Ub
+      7 root      20   0    2804      4      4 S   0.0   0.0   0:01.14 init
+    139 root      20   0   24124   1984   1528 S   0.0   0.0   0:00.96 systemd-udevd
+    235 systemd+  20   0   21452    264    124 S   0.0   0.0   0:02.61 systemd-resolve
+    236 systemd+  20   0   91020     60      8 S   0.0   0.0   0:08.11 systemd-timesyn
+    256 root      20   0    4236     92      0 S   0.0   0.0   0:00.90 cron
+    257 message+  20   0    9600    304      0 S   0.0   0.0   0:19.59 dbus-daemon
+    266 root      20   0   17976    884    756 S   0.0   0.0   0:07.40 systemd-logind
+    269 root      20   0 2421668   2636      0 S   0.0   0.0   3:13.65 wsl-pro-service
+    275 root      20   0    3160      0      0 S   0.0   0.0   0:00.01 agetty
+    279 root      20   0    3116      0      0 S   0.0   0.0   0:00.01 agetty
+    282 syslog    20   0  222508    340      0 S   0.0   0.0   0:05.36 rsyslogd
+    289 root      20   0  107016      0      0 S   0.0   0.0   0:00.21 unattended-upgr
+    330 root      20   0    2780      0      0 S   0.0   0.0   0:00.00 SessionLeader
+    331 root      20   0    2780      0      0 S   0.0   0.0   0:00.03 Relay(332)
+    332 alexts14  20   0    7556      4      4 S   0.0   0.0   0:00.13 bash
+    333 root      20   0    6660      0      0 S   0.0   0.0   0:00.02 login
+    493 alexts14  20   0   20260    704    232 S   0.0   0.0   0:01.74 systemd
+    494 alexts14  20   0   21144      0      0 S   0.0   0.0   0:00.00 (sd-pam)
+    509 alexts14  20   0    6072      0      0 S   0.0   0.0   0:00.04 bash
+    794 polkitd   20   0  308164      0      0 S   0.0   0.0   0:07.49 polkitd
+```
