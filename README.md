@@ -1094,3 +1094,183 @@ MiB Swap:  55296.0 total,  42956.6 free,  12339.4 used.     60.2 avail Mem
     509 alexts14  20   0    6072      0      0 S   0.0   0.0   0:00.04 bash
     794 polkitd   20   0  308164      0      0 S   0.0   0.0   0:07.49 polkitd
 ```
+
+# 16/05/2025
+
+Indexing failed.
+
+Extraction of five prime UTRS start and +- 150 bases 
+
+```
+(NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes$ cut -f3 Heterocephalus_glaber_male.Naked_mole-rat_paternal.113.gff3 | sort | uniq -c
+      1 #!genebuild-last-updated 2022-09
+      1 #!genome-build  Naked_mole-rat_paternal
+      1 #!genome-build-accession GCA_944319725.1
+      1 #!genome-date 2022-07
+      1 #!genome-version Naked_mole-rat_paternal
+  35146 ###
+      1 ##gff-version 3
+      1 ##sequence-region   1 1 126681680
+      1 ##sequence-region   10 1 94825129
+      1 ##sequence-region   11 1 88157664
+      1 ##sequence-region   12 1 87863200
+      1 ##sequence-region   13 1 82497129
+      1 ##sequence-region   14 1 76838549
+      1 ##sequence-region   15 1 76365940
+      1 ##sequence-region   16 1 76437676
+      1 ##sequence-region   17 1 71606942
+      1 ##sequence-region   18 1 67431141
+      1 ##sequence-region   19 1 60928233
+      1 ##sequence-region   2 1 131346783
+      1 ##sequence-region   20 1 61068310
+      1 ##sequence-region   21 1 56435557
+      1 ##sequence-region   22 1 59689252
+      1 ##sequence-region   23 1 53761172
+      1 ##sequence-region   24 1 52691189
+      1 ##sequence-region   25 1 46678892
+      1 ##sequence-region   26 1 44400560
+      1 ##sequence-region   27 1 38566542
+      1 ##sequence-region   28 1 32538853
+      1 ##sequence-region   29 1 23277160
+      1 ##sequence-region   3 1 124509033
+      1 ##sequence-region   4 1 121083042
+      1 ##sequence-region   5 1 119101870
+      1 ##sequence-region   6 1 118199489
+      1 ##sequence-region   7 1 101507220
+      1 ##sequence-region   8 1 100330867
+      1 ##sequence-region   9 1 97794639
+      1 ##sequence-region   MT 1 16386
+      1 ##sequence-region   OX090940.1 1 61021973
+      1 ##sequence-region   X 1 145805425
+ 501232 CDS
+      1 C_gene_segment
+      3 J_gene_segment
+     19 V_gene_segment
+     19 Y_RNA
+ 104755 biological_region
+ 591691 exon
+  67025 five_prime_UTR
+  23343 gene
+  16904 lnc_RNA
+  51089 mRNA
+     85 miRNA
+  10427 ncRNA_gene
+   1344 pseudogene
+   1344 pseudogenic_transcript
+      9 rRNA
+     32 region
+     33 scRNA
+   1691 snRNA
+    689 snoRNA
+     22 tRNA
+  44558 three_prime_UTR
+     37 transcript
+(NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes$ awk '$3 == "five_prime_UTR" && $1 !~ /^#/ {
+chrom = >     chrom = $1;
+>     strand = $7;
+>     start = (strand == "+") ? $4 : $5;
+>     win_start = start - 150;
+>     win_end = start + 150;
+>     if (win_start < 0) win_start = 0;
+>
+  # ext>     # extract transcript_id or gene_id from column 9
+>     match($9, /ID=([^;]+)/, arr);
+>     name = (arr[1] != "") ? arr[1] : ".";
+>
+ print c>     print chrom, win_start, win_end, name, ".", strand;
+S="\t> }' OFS="\t" Heterocephalus_glaber_male.Naked_mole-rat_paternal.113.gff3 \
+> > five_prime_UTR_plusminus150_fromGFF3.bed
+(NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes$ head five_prime_UTR_plusminus150_fromGFF3.bed
+1       76754   77054   .       .       -
+1       78457   78757   .       .       -
+1       76754   77054   .       .       -
+1       78457   78757   .       .       -
+1       76754   77054   .       .       -
+1       79043   79343   .       .       -
+1       76754   77054   .       .       -
+1       79059   79359   .       .       -
+1       99320   99620   .       .       +
+1       99335   99635   .       .       +
+(NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes$ awk '$3 == "five_prime_UTR" && $1 !~ /^#/ {
+chrom = >     chrom = $1;
+>     strand = $7;
+>     start = (strand == "+") ? $4 : $5;
+>     win_start = start - 150;
+>     win_end = start + 150;
+>     if (win_start < 0) win_start = 0;
+>
+  match(>     match($9, /ID=([^;]+)/, arr);
+>     id = (arr[1] != "") ? arr[1] : ".";
+>
+>     print chrom, win_start, win_end, id, ".", strand;
+> }' OFS="\t" Heterocephalus_glaber_male.Naked_mole-rat_paternal.113.gff3 \
+> > five_prime_UTR_plusminus150_withID.bed
+(NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes$ head five_prime_UTR_plusminus150_withID.bed
+1       76754   77054   .       .       -
+1       78457   78757   .       .       -
+1       76754   77054   .       .       -
+1       78457   78757   .       .       -
+1       76754   77054   .       .       -
+1       79043   79343   .       .       -
+1       76754   77054   .       .       -
+1       79059   79359   .       .       -
+1       99320   99620   .       .       +
+1       99335   99635   .       .       +
+(NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes$ grep "five_prime_UTR" Heterocephalus_glaber_male.Naked_mole-rat_paternal.113.gff3 | head -n 1
+1       ensembl five_prime_UTR  76844   76904   .       -       .       Parent=transcript:ENSHGLT00100092820
+(NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes$ awk '$3 == "five_prime_UTR" && $1 !~ /^#/ {
+chrom = >     chrom = $1;
+>     strand = $7;
+>     start = (strand == "+") ? $4 : $5;
+>     win_start = start - 150;
+>     win_end = start + 150;
+>     if (win_start < 0) win_start = 0;
+>
+  match(>     match($9, /Parent=transcript:([^;]+)/, arr);
+>     transcript_id = (arr[1] != "") ? arr[1] : ".";
+>
+>     print chrom, win_start, win_end, transcript_id, ".", strand;
+> }' OFS="\t" Heterocephalus_glaber_male.Naked_mole-rat_paternal.113.gff3 \
+> > five_prime_UTR_plusminus150_withTranscriptID.bed
+(NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes$ head five_prime_UTR_plusminus150_withTranscriptID.bed
+1       76754   77054   ENSHGLT00100092820      .       -
+1       78457   78757   ENSHGLT00100092820      .       -
+1       76754   77054   ENSHGLT00100041989      .       -
+1       78457   78757   ENSHGLT00100041989      .       -
+1       76754   77054   ENSHGLT00100016094      .       -
+1       79043   79343   ENSHGLT00100016094      .       -
+1       76754   77054   ENSHGLT00100016095      .       -
+1       79059   79359   ENSHGLT00100016095      .       -
+1       99320   99620   ENSHGLT00100047040      .       +
+1       99335   99635   ENSHGLT00100080349      .       +
+(NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes$ awk '$3 == "five_prime_UTR" && $1 !~ /^#/ {
+om = $1>     chrom = $1;
+>     strand = $7;
+>
+>     # 1-base position depends on strand
+>     pos = (strand == "+") ? $4 : $5;
+>     start = pos - 1;
+>     end = pos;
+>     if (start < 0) start = 0;
+>
+>     # extract transcript ID
+>     match($9, /Parent=transcript:([^;]+)/, arr);
+   trans>     transcript_id = (arr[1] != "") ? arr[1] : ".";>
+hrom, st>     print chrom, start, end, transcript_id, ".", strand;
+> }' OFS="\t" Heterocephalus_glaber_male.Naked_mole-rat_paternal.113.gff3 \
+> > five_prime_UTR_first_base.bed
+(NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes$ head five_prime_UTR_first_base.bed
+1       76903   76904   ENSHGLT00100092820      .       -
+1       78606   78607   ENSHGLT00100092820      .       -
+1       76903   76904   ENSHGLT00100041989      .       -
+1       78606   78607   ENSHGLT00100041989      .       -
+1       76903   76904   ENSHGLT00100016094      .       -
+1       79192   79193   ENSHGLT00100016094      .       -
+1       76903   76904   ENSHGLT00100016095      .       -
+1       79208   79209   ENSHGLT00100016095      .       -
+1       99469   99470   ENSHGLT00100047040      .       +
+1       99484   99485   ENSHGLT00100080349      .       +
+```
+
+![image](https://github.com/user-attachments/assets/81391047-63a7-4bf1-9d6f-ffa8b49209cc)
+
