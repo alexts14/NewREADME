@@ -1274,3 +1274,120 @@ hrom, st>     print chrom, start, end, transcript_id, ".", strand;
 
 ![image](https://github.com/user-attachments/assets/81391047-63a7-4bf1-9d6f-ffa8b49209cc)
 
+# 19.05.2025
+Exctract the -150/+150 sequence 
+ ```
+) alexts14@GabanouMelissa:~/nmr_chromosomes$ cd  5utr_analysis
+(NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes/5utr_analysis$ ls -lh
+total 2.9G
+-rw-r--r-- 1 alexts14 alexts14 209M May 12 14:58 Heterocephalus_glaber_male.Naked_mole-rat_paternal.113.gff3
+-rw-r--r-- 1 alexts14 alexts14 209M May 12 14:59 Heterocephalus_glaber_male.Naked_mole-rat_paternal.113.sorted.gff3
+-rw-r--r-- 1 alexts14 alexts14 2.4G May 12 14:59 Hglaber_combined_genome.fa
+-rw-r--r-- 1 alexts14 alexts14  876 May 16 13:58 Hglaber_combined_genome.fa.fai
+-rw-r--r-- 1 alexts14 alexts14  22M May 16 15:18 five_prime_UTR_plusminus150_sequences.fa
+-rw-r--r-- 1 alexts14 alexts14    0 May 15 14:29 five_prime_UTR_plusminus150_with_geneid.bed
+-rw-r--r-- 1 alexts14 alexts14 135M May 15 14:20 working_5utr.gtf
+(NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes/5utr_analysis$ cut -f1 ../Hglaber_combined_genome.fa.fai | sort > valid_chroms.txt
+(NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes/5utr_analysis$ awk 'NR==FNR {ok[$1]; next} $1 in ok' valid_chroms.txt ../five_prime_UTR_plusminus150_withTranscriptID.bed > clean_utr.bed
+(NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes/5utr_analysis$ ls -lh
+total 2.9G
+-rw-r--r-- 1 alexts14 alexts14 209M May 12 14:58 Heterocephalus_glaber_male.Naked_mole-rat_paternal.113.gff3
+-rw-r--r-- 1 alexts14 alexts14 209M May 12 14:59 Heterocephalus_glaber_male.Naked_mole-rat_paternal.113.sorted.gff3
+-rw-r--r-- 1 alexts14 alexts14 2.4G May 12 14:59 Hglaber_combined_genome.fa
+-rw-r--r-- 1 alexts14 alexts14  876 May 16 13:58 Hglaber_combined_genome.fa.fai
+-rw-r--r-- 1 alexts14 alexts14 2.7M May 19 15:26 clean_utr.bed
+-rw-r--r-- 1 alexts14 alexts14  22M May 16 15:18 five_prime_UTR_plusminus150_sequences.fa
+-rw-r--r-- 1 alexts14 alexts14    0 May 15 14:29 five_prime_UTR_plusminus150_with_geneid.bed
+-rw-r--r-- 1 alexts14 alexts14   83 May 19 15:26 valid_chroms.txt
+-rw-r--r-- 1 alexts14 alexts14 135M May 15 14:20 working_5utr.gtf
+(NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes/5utr_analysis$ head valid_chroms.txt
+1
+10
+11
+12
+13
+14
+15
+16
+17
+18
+(NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes/5utr_analysis$ wc -l valid_chroms.txt
+31 valid_chroms.txt
+(NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes/5utr_analysis$ head clean_utr.bed
+1       76754   77054   ENSHGLT00100092820      .       -
+1       78457   78757   ENSHGLT00100092820      .       -
+1       76754   77054   ENSHGLT00100041989      .       -
+1       78457   78757   ENSHGLT00100041989      .       -
+1       76754   77054   ENSHGLT00100016094      .       -
+1       79043   79343   ENSHGLT00100016094      .       -
+1       76754   77054   ENSHGLT00100016095      .       -
+1       79059   79359   ENSHGLT00100016095      .       -
+1       99320   99620   ENSHGLT00100047040      .       +
+1       99335   99635   ENSHGLT00100080349      .       +
+(NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes/5utr_analysis$ wc -l clean_utr.bed
+64580 clean_utr.bed
+(NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes/5utr_analysis$ cut -f1 clean_utr.bed | sort | uniq -c
+   2756 1
+   1695 10
+   1221 11
+   2340 12
+   2248 13
+   1495 14
+   2357 15
+   1183 16
+   2036 17
+   1053 18
+   2079 19
+   2881 2
+   3327 20
+    998 21
+   1833 22
+   2865 23
+   1389 24
+   1373 25
+   1398 26
+   1145 27
+   1405 28
+   2909 29
+   2032 3
+   3147 4
+   4002 5
+   2171 6
+   3220 7
+   2921 8
+   2041 9
+   3060 X
+(NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes/5utr_analysis$ bedtools getfasta \
+>   -fi ../Hglaber_combined_genome.fa \
+>   -bed clean_utr.bed \
+>   -s \
+ame \
+  >   -name \
+>   -fo five_prime_UTR_plusminus150_sequences_clean.fa
+
+
+Feature (20:61068160-61068460) beyond the length of 20 size (61068310 bp).  Skipping.
+Feature (20:61068160-61068460) beyond the length of 20 size (61068310 bp).  Skipping.
+
+(NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes/5utr_analysis$
+(NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes/5utr_analysis$
+(NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes/5utr_analysis$
+(NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes/5utr_analysis$ grep -c "^>" five_prime_UTR_plusminus150_sequences_clean.fa
+64578
+(NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes/5utr_analysis$ awk 'BEGIN{OFS="\t"} /^>/ {header=substr($0,2); next} {print header, $0}' five_prime_UTR_plusminus150_sequences_clean.fa > utr_sequences_table.tsv
+(NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes/5utr_analysis$ head utr_sequences_table.tsv
+ENSHGLT00100092820::1:76754-77054(-)    GAGTAAATTTTATATTaaaaaaaaTAGAATAGTTTTATTCTGGATTAATGCAGAAGTCTTTAGATTAGTACAGGGATTTAGGTAAGATTTTTTACAAGTTTTGAACTTGTGCCCTTGATAAATTGGCTAACCTTATGTTTCTTTTCACAGGCTGGGTGAACTCATGGACCTGGTGTTTTTCTTCTGAGAAAGAAACCTGCTCAAAAGAAAAATGGCCTTTGTTGCAACACAAGGGGCCACAGTGGTTGACCAAACCACTCTTATGAAAAAATACCTTCAGTTTGTGGCAGCTCTCACAGA
+ENSHGLT00100092820::1:78457-78757(-)    GGAGAGAGCCTGGGGGCCGTTTGGGACCGGAGGGCTCGGGCTTGGGTTGGGGTCGCACATACAAGAGGTGCCTCCCGCCTAGCTGGGCACCTCTCGGCCTCCGTGCAAGCACTTGGCTCGTCGGGCCGAACGCGAACGCGGAGAGCGAAGGTGCTGTAGCGGTGCCTACAGCGCCCTCTCGGGTCCGGCGGTGCAGCCTCCGGCCGGGCTCGGCGCAGTCGGGGCGGAGCCGTTGACCCTGGGCGCCGGCTGGATGCCGGCCCTCCCGTCCCCACCTGGCAGGACGAGGTGGGATTGGCG
+ENSHGLT00100041989::1:76754-77054(-)    GAGTAAATTTTATATTaaaaaaaaTAGAATAGTTTTATTCTGGATTAATGCAGAAGTCTTTAGATTAGTACAGGGATTTAGGTAAGATTTTTTACAAGTTTTGAACTTGTGCCCTTGATAAATTGGCTAACCTTATGTTTCTTTTCACAGGCTGGGTGAACTCATGGACCTGGTGTTTTTCTTCTGAGAAAGAAACCTGCTCAAAAGAAAAATGGCCTTTGTTGCAACACAAGGGGCCACAGTGGTTGACCAAACCACTCTTATGAAAAAATACCTTCAGTTTGTGGCAGCTCTCACAGA
+ENSHGLT00100041989::1:78457-78757(-)    GGAGAGAGCCTGGGGGCCGTTTGGGACCGGAGGGCTCGGGCTTGGGTTGGGGTCGCACATACAAGAGGTGCCTCCCGCCTAGCTGGGCACCTCTCGGCCTCCGTGCAAGCACTTGGCTCGTCGGGCCGAACGCGAACGCGGAGAGCGAAGGTGCTGTAGCGGTGCCTACAGCGCCCTCTCGGGTCCGGCGGTGCAGCCTCCGGCCGGGCTCGGCGCAGTCGGGGCGGAGCCGTTGACCCTGGGCGCCGGCTGGATGCCGGCCCTCCCGTCCCCACCTGGCAGGACGAGGTGGGATTGGCG
+ENSHGLT00100016094::1:76754-77054(-)    GAGTAAATTTTATATTaaaaaaaaTAGAATAGTTTTATTCTGGATTAATGCAGAAGTCTTTAGATTAGTACAGGGATTTAGGTAAGATTTTTTACAAGTTTTGAACTTGTGCCCTTGATAAATTGGCTAACCTTATGTTTCTTTTCACAGGCTGGGTGAACTCATGGACCTGGTGTTTTTCTTCTGAGAAAGAAACCTGCTCAAAAGAAAAATGGCCTTTGTTGCAACACAAGGGGCCACAGTGGTTGACCAAACCACTCTTATGAAAAAATACCTTCAGTTTGTGGCAGCTCTCACAGA
+ENSHGLT00100016094::1:79043-79343(-)    GAAACTTCACTTGCCGGCCTGCAGcccccccTGCAGCGGGGGTTTTAAAGGGCCACGGGCCCGGCCTGCTTCTGGCTGCAGCTACCCCGCCCCTCCCGCCACGCCCTGCCGCCCGCCCAAGGCCGCTCCCACTCGGGGGCGGCGCGTCGGGGCCTAGTTCTCGGTGGGCAGGCGCAGCCGCTTTAAgcggaggcgggactgcgcgcggcggaggagctaccgcggcggtggcggggcgggaggcgaggcCTTCgggggggCGCTGGCCAGACTGCGGGCGGCCGGCCGCTGAGCTCCCGG
+ENSHGLT00100016095::1:76754-77054(-)    GAGTAAATTTTATATTaaaaaaaaTAGAATAGTTTTATTCTGGATTAATGCAGAAGTCTTTAGATTAGTACAGGGATTTAGGTAAGATTTTTTACAAGTTTTGAACTTGTGCCCTTGATAAATTGGCTAACCTTATGTTTCTTTTCACAGGCTGGGTGAACTCATGGACCTGGTGTTTTTCTTCTGAGAAAGAAACCTGCTCAAAAGAAAAATGGCCTTTGTTGCAACACAAGGGGCCACAGTGGTTGACCAAACCACTCTTATGAAAAAATACCTTCAGTTTGTGGCAGCTCTCACAGA
+ENSHGLT00100016095::1:79059-79359(-)    GGACCCGAGGTACGGGGAAACTTCACTTGCCGGCCTGCAGcccccccTGCAGCGGGGGTTTTAAAGGGCCACGGGCCCGGCCTGCTTCTGGCTGCAGCTACCCCGCCCCTCCCGCCACGCCCTGCCGCCCGCCCAAGGCCGCTCCCACTCGGGGGCGGCGCGTCGGGGCCTAGTTCTCGGTGGGCAGGCGCAGCCGCTTTAAgcggaggcgggactgcgcgcggcggaggagctaccgcggcggtggcggggcgggaggcgaggcCTTCgggggggCGCTGGCCAGACTGCGGGCGGCCG
+ENSHGLT00100047040::1:99320-99620(+)    TTTGTTGAATGAAAAGCTGCGAGCTGGAGGTCTGAACACACCTGGAAAGGCCCAGGTGTCCGGCGCCGCCGCTGTGCGGCCCAGCATGCGCCTCTGGGGACGCTGAGTCACAACGCGCGGGCACAGACCTGGTCGGGACAAGGATGCgggggggtggggcagggaggcgacgcagatccgaggagggagggacgcggggagggggcgcgcACGGCACCGCAGACCCGCTGATGGGGCAAGGGTcgcgcgcgcggcagactgtgggcgggggcggcgcctggggaggacgagcgagcgcgg
+ENSHGLT00100080349::1:99335-99635(+)    GCTGCGAGCTGGAGGTCTGAACACACCTGGAAAGGCCCAGGTGTCCGGCGCCGCCGCTGTGCGGCCCAGCATGCGCCTCTGGGGACGCTGAGTCACAACGCGCGGGCACAGACCTGGTCGGGACAAGGATGCgggggggtggggcagggaggcgacgcagatccgaggagggagggacgcggggagggggcgcgcACGGCACCGCAGACCCGCTGATGGGGCAAGGGTcgcgcgcgcggcagactgtgggcgggggcggcgcctggggaggacgagcgagcgcggcgcCCGCACCTCCGC
+(NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes/5utr_analysis$  wc -l utr_sequences_table.tsv
+64578 utr_sequences_table.tsv
+(NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes/5utr_analysis$
+```
+No we have the sequence for the -150/+150 of the 5'utrs with only 2 entries skipped due to being beyond chromosome 20’s end.
