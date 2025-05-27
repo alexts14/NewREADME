@@ -1391,3 +1391,100 @@ ENSHGLT00100080349::1:99335-99635(+)    GCTGCGAGCTGGAGGTCTGAACACACCTGGAAAGGCCCAG
 (NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes/5utr_analysis$
 ```
 No we have the sequence for the -150/+150 of the 5'utrs with only 2 entries skipped due to being beyond chromosome 20’s end.
+
+# 27.05.2025
+Trying to get clean exon1 and 5utr tsv file
+
+```
+(NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes/5utr_analysis$ awk 'BEGIN{OFS="\t"} {
+>     split($1, a, "::");
+>     split(a[2], b, "[:\\-()]");  # b[1]=chrom, b[2]=start, b[3]=stop, b[4]=strand
+>     print a[1], b[1], b[2], b[3], b[4], $2;
+> }' utr_sequences_table.tsv > utr_sequences_final.tsv
+(NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes/5utr_analysis$ rm  utr_sequences_final.tsv
+(NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes/5utr_analysis$ awk 'BEGIN{OFS="\t"} {
+split($>     split($1, a, "::");                    # a[1] = transcript ID, a[2] = position string
+>     match(a[2], /([0-9XYMT]+):([0-9]+)-([0-9]+)\(([+-])\)/, m);
+>     # m[1]=chromosome, m[2]=start, m[3]=stop, m[4]=strand
+>     print a[1], m[1], m[2], m[3], m[4], $2;
+> }' utr_sequences_table.tsv > utr_sequences_final.tsv
+(NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes/5utr_analysis$ awk '$3 == "exon" && $1 !~ /^#/' Heterocephalus_glaber_male.Naked_mole-rat_paternal.113.gff3 \
+ all_e> > all_exons.gff3
+(NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes/5utr_analysis$ head -f all_exons.gff3
+head: invalid option -- 'f'
+Try 'head --help' for more information.
+(NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes/5utr_analysis$ head all_exons.gff3
+1       ensembl exon    411     615     .       -       .       Parent=transcript:ENSHGLT00100092820;Name=ENSHGLE00100305216;constitutive=1;ensembl_end_phase=0;ensembl_phase=2;exon_id=ENSHGLE00100305216;rank=45;version=1
+1       ensembl exon    958     1097    .       -       .       Parent=transcript:ENSHGLT00100092820;Name=ENSHGLE00100120907;constitutive=1;ensembl_end_phase=2;ensembl_phase=0;exon_id=ENSHGLE00100120907;rank=44;version=2
+1       ensembl exon    2357    2491    .       -       .       Parent=transcript:ENSHGLT00100092820;Name=ENSHGLE00100120906;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=ENSHGLE00100120906;rank=43;version=1
+1       ensembl exon    2586    2744    .       -       .       Parent=transcript:ENSHGLT00100092820;Name=ENSHGLE00100120905;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=ENSHGLE00100120905;rank=42;version=1
+1       ensembl exon    3747    3953    .       -       .       Parent=transcript:ENSHGLT00100092820;Name=ENSHGLE00100120904;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=ENSHGLE00100120904;rank=41;version=1
+1       ensembl exon    6174    6440    .       -       .       Parent=transcript:ENSHGLT00100092820;Name=ENSHGLE00100120903;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=ENSHGLE00100120903;rank=40;version=1
+1       ensembl exon    15287   15415   .       -       .       Parent=transcript:ENSHGLT00100092820;Name=ENSHGLE00100120902;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=ENSHGLE00100120902;rank=39;version=1
+1       ensembl exon    15840   16038   .       -       .       Parent=transcript:ENSHGLT00100092820;Name=ENSHGLE00100120901;constitutive=1;ensembl_end_phase=0;ensembl_phase=2;exon_id=ENSHGLE00100120901;rank=38;version=1
+1       ensembl exon    16269   16450   .       -       .       Parent=transcript:ENSHGLT00100092820;Name=ENSHGLE00100120900;constitutive=1;ensembl_end_phase=2;ensembl_phase=0;exon_id=ENSHGLE00100120900;rank=37;version=1
+1       ensembl exon    16528   16692   .       -       .       Parent=transcript:ENSHGLT00100092820;Name=ENSHGLE00100120899;constitutive=1;ensembl_end_phase=0;ensembl_phase=0;exon_id=ENSHGLE00100120899;rank=36;version=1
+(NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes/5utr_analysis$ awk '
+ {OFS> BEGIN {OFS="\t"}
+> {
+>     match($9, /Parent=transcript:([^;]+)/, a);
+>     transcript = a[1];
+>     strand = $7;
+>     key = transcript ":" strand;
+>
+if (!(>     if (!(key in seen) || (strand == "+" && $4 < seen_start[key]) || (strand == "-" && $5 > seen_start[key])) {
+ seen[ke>         seen[key] = $0;
+>         seen_start[key] = (strand == "+") ? $4 : $5;
+>     }
+> }
+> END {
+>     for (k in seen) print seen[k];
+> }' all_exons.gff3 > first_exons.gff3
+(NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes/5utr_analysis$ awk 'BEGIN{OFS="\t"} {
+>     chrom = $1;
+>     strand = $7;
+>     start = (strand == "+") ? $4 : $5;
+>     win_start = start - 150;
+>     win_end = start + 150;
+start <>     if (win_start < 0) win_start = 0;
+>
+>     match($9, /Parent=transcript:([^;]+)/, a);
+  transc>     transcript = a[1];
+  print >
+>     print chrom, win_start, win_end, transcript, ".", strand;
+}' firs> }' first_exons.gff3 > exon1_plusminus150.bed
+(NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes/5utr_analysis$ awk 'NR==FNR {ok[$1]; next} $1 in ok' valid_chroms.txt exon1_plusminus150.bed > clean_exon1.bed
+(NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes/5utr_analysis$ bedtools getfasta \
+>   -fi ../Hglaber_combined_genome.fa \
+>   -bed clean_exon1.bed \
+>   -s \
+>   -name \
+>   -fo exon1_plusminus150_sequences.fa
+Feature (20:61068160-61068460) beyond the length of 20 size (61068310 bp).  Skipping.
+Feature (20:61068160-61068460) beyond the length of 20 size (61068310 bp).  Skipping.
+(NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes/5utr_analysis$ awk 'BEGIN{OFS="\t"} /^>/ {
+>     # >ENSHGLT00100092820
+>     gsub(">", "", $0);
+>     header=$0; next
+> }
+> {
+>     print header, $0
+> }' exon1_plusminus150_sequences.fa > exon1_sequences_raw.tsv
+(NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes/5utr_analysis$ awk 'BEGIN{OFS="\t"} {
+split($>     split($1, a, "::");
+>     match(a[2], /([0-9XYMT]+):([0-9]+)-([0-9]+)\(([+-])\)/, m);
+>     print a[1], m[1], m[2], m[3], m[4], $2;
+> }' exon1_sequences_raw.tsv > exon1_sequences_final.tsv
+(NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes/5utr_analysis$ sort -k2,2V utr_sequences_final.tsv > utr_sequences_sorted.tsv
+ exon1_sequences_final.tsv > exon1_sequences_sorted.tsv
+(NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes/5utr_analysis$ sort -k2,2V exon1_sequences_final.tsv > exon1_sequences_sorted.tsv
+(NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes/5utr_analysis$ (NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes/5utr_analysis$ s
+ort -k2,2V -k3,3n utr_sequences_final.tsv > utr_sequences_sortedfinal.tsv
+k2,2V -k3,3n exon1_sequences_final.tsv > exon1_sequences_sortedfinal.tsv (NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes/5utr_analsort -k2,2V -k3,3n exon1_sequences_final.tsv > exon1_sequences_sortedfinal.tsv
+(NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes/5utr_analysis$ awk 'BEGIN{OFS="\t"} {print $0, "UTR"}' utr_sequences_sortedfinal.tsv > utr_labeled.tsv
+awk 'BEGIN{OFS="\t"} {print $0, "Exon1"}' exon1_sequences_sortedfinal.tsv > exon1_labeled.tsv
+(NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes/5utr_analysis$ awk 'BEGIN{OFS="\t"} {print $0, "Exon1"}' exon1_sequences_sortedfinal.tsv > exon1_labeled.tsv
+(NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes/5utr_analysis$ ca(((((NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes/5utr_analysis$ awk 'BEGIN{OFS="\t"} {print $7, $1, $2, $3, $4, $5, $6}' combined.tsv > combined_reordered.tsv
+(NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes/5utr_analysis$ sort -k3,3V -k4,4n combined_reordered.tsv > combined_sorted.tsv
+(NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes/5utr_ana(NMR-env) alexts14@GabanouMelissa:~/nmr_chromosomes/5utr_analysis$
+```
